@@ -1,0 +1,73 @@
+.cases-section {}
+
+.cases {
+    &__item {}
+    &__inner {}
+    &__thumb {
+        .event__bars {
+            &-left {
+                p {
+                    @include breakpoint(max-sm) {
+                        color: $title-color;
+                    }
+                    span {
+                        color: $theme-color2;
+                    }
+                }
+            }
+        }
+    }
+    &__content {
+        &-content {
+            @extend %mt-30;
+            h5 {
+                @extend %text-uppercase;
+            }
+            p {}
+        }
+        .accordion {
+            @extend %py-30;
+            .accordion-item .accordion-header .accordion-button {
+                background: $theme-color2;
+                &.collapsed {
+                    background: $white-color;
+                }
+            }
+            .accordion-item .accordion-header .accordion-button.collapsed::after {
+                background: $theme-color2;
+                color: $white-color;
+            }
+            .accordion-item .accordion-header .accordion-button::after {
+                color: $theme-color2;
+            }
+            .donate {
+                @extend %flex;
+                @extend %justify-between;
+                input {
+                    width: calc(100% - 160px);
+                    @extend %mb-0;
+                }
+                .default-btn {
+                    line-height: 46px;
+                    padding: 0 20px;
+                }
+            }
+            .bank-transform {
+                ul {
+                    li {
+                        @extend %py-5;
+                        b {
+                            color: $title-color;
+                            @extend %mr-5;
+                        }
+                    }
+                }
+            }
+            .payment {
+                p {
+                    margin-bottom: 10px !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,164 @@
+.footer {
+    background: $title-color;
+    @extend %of-hidden;
+    &__top {
+        color: #b6b5b5;
+    }
+    &__logoarea {
+        img {
+            @extend %mb-30;
+        }
+        p {
+            @extend %mb-30;
+        }
+    }
+    &__post {
+        ul {
+            li {
+                @extend %flex;
+                @extend %mb-15;
+                &:last-child {
+                    @extend %mb-0;
+                }
+                &:hover {
+                    .footer__postthumb {
+                        img {
+                            @include add-prefix(transform, scale(1.2));
+                        }
+                    }
+                    .footer__postcontent {
+                        h6 {
+                            color: $theme-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__postthumb {
+        @extend %of-hidden;
+        width: 70px;
+        img {}
+    }
+    &__postcontent {
+        width: calc(100% - 70px);
+        padding-left: 15px;
+        h6 {
+            @extend %text-1;
+            @extend %text-regular;
+            @include font-size(16px);
+            color: #b6b5b5;
+        }
+        p {
+            i, svg {
+                color: $theme-color;
+            }
+        }
+    }
+    &-title {
+        h3 {
+            color: $white-color;
+            @include font-size(18px);
+            @extend %text-uppercase;
+            @extend %mb-30;
+        }
+    }
+
+    &__gallery {
+        ul {
+            @extend %flex;
+            li {
+                @include breakpoint(sm) {
+                    width: calc(100% / 3);
+                }
+                &:hover {
+                    .footer__gallerythumb {
+                        img {
+                            @include add-prefix(transform, (scale(1.2)));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__gallerythumb {
+        @extend %of-hidden;
+        @extend %m-5;
+        img {
+            @extend %w-100;
+        }
+    }
+
+
+    &__info {
+        ul {
+            li {
+                @extend %py-10;
+                i, svg {
+                    @extend %mr-5;
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+
+
+    &__bottom {
+        @extend %py-30;
+        background: $white-color;
+    }
+    &__copyright {
+        p {
+            @extend %mb-0;
+            @extend %text-bold;
+            @extend %text-center;
+            @include breakpoint(lg) {
+                text-align: left;
+            }
+            a {}
+        }
+    }
+    &__social {
+        ul {
+            @extend %flex;
+            @extend %justify-center;
+            @include breakpoint(lg) {
+                justify-content: flex-end;
+            }
+            li {
+                a {
+                    @extend %p-10;
+                    &:hover {
+                        color: $theme-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &--style2 {
+        .footer {
+            &__bottom {
+                &--area {
+                    @extend %flex-inline;
+                    gap: 15px;
+                    justify-content: space-between;
+                }
+            }
+            &__link {
+                ul {
+                    @extend %flex;
+                    gap: 10px 20px;
+                    @include breakpoint(sm) {
+                        justify-content: flex-end;
+                    }
+                    li {
+                        a {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

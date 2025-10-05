@@ -1,0 +1,127 @@
+.sidebar {
+    &__head {
+        @extend %mb-15;
+        h4 {
+            @include font-size(24px);
+            @extend %text-uppercase;
+        }
+    }
+    &__body {}
+    &__catagory {
+        ul {
+            li {
+                @extend %flex;
+                @extend %justify-between;
+                @extend %py-10;
+                @extend %text-bold;
+                border-bottom: 1px solid $border-color;
+                &:hover {
+                    a {
+                        @extend %pl-15;
+                    }
+                    span {
+                        color: $white-color;
+                        background: $theme-color2;
+                    }
+                }
+                &:last-child {
+                    @extend %border-none;
+                }
+                a {
+                    @include add-prefix(transition, (all .3s ease));
+                }
+                span {
+                    @extend %d-inline-block;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    background: $ash-color;
+                    color: $title-color;
+                    @include font-size(14px);
+                    @extend %text-center;
+                    @include add-prefix(transition, (all .3s ease));
+                }
+            }
+        }
+    }
+    &__post {
+        &-item {}
+        &-inner {
+            @extend %flex;
+            @extend %mb-20;
+            &:hover {
+                .sidebar__post-thumb {
+                    img {
+                        @include add-prefix(transform, (scale(1.1)));
+                    }
+                }
+                .sidebar__post-content {
+                    h6 {
+                        color: $theme-color2;
+                    }
+                }
+            }
+        }
+        &-thumb {
+            width: 80px;
+            @extend %of-hidden;
+            img {
+                @extend %w-100;
+                @extend %d-block;
+            }
+        }
+        &-content {
+            width: calc(100% - 80px);
+            @extend %pl-15;
+            h6 {
+                @include font-size(16px);
+                @extend %text-capitalize;
+                @extend %text-bold;
+                @extend %mb-0;
+                @extend %text-2;
+            }
+            ul {
+                li {
+                    @extend %d-inline-block;
+                    @extend %p-5;
+                }
+            }
+        }
+    }
+    &__instagram {
+        ul {
+            @extend %flex;
+            li {
+                @extend %of-hidden;
+                @extend %d-inline-block;
+                @include breakpoint(xl) {
+                    width: calc(100% / 4);
+                    display: block;
+                }
+                img {
+                    margin: 2.5px;
+                }
+            }
+        }
+    }
+    &__tags {
+        ul {
+            li {
+                @extend %d-inline-block;
+                a {
+                    padding: 7px 13px;
+                    @extend %d-inline-block;
+                    background: $ash-color;
+                    @include font-size(15px);
+                    @extend %text-bold;
+                    @extend %m-5;
+                    @extend %text-capitalize;
+                    &:hover {
+                        background: $theme-color2;
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}

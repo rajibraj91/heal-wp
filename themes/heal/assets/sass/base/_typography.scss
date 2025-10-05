@@ -1,0 +1,76 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $text-color;
+  font-size: $fs-base;
+  line-height: 1.5;
+  font-family: $text-font;
+  background: var(--mrs-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $title-color;
+  line-height: 1.5;
+  @extend %text-extabold;
+  font-family: $title-font;
+  @include add-prefix(transition, (all .3s ease));
+}
+
+h1 {
+  @include font-size($fs-h1);
+}
+
+h2 {
+  @include font-size($fs-h2);
+}
+
+h3 {
+  @include font-size($fs-h3);
+}
+
+h4 {
+  @include font-size($fs-h4);
+}
+
+h5 {
+  @include font-size($fs-h5);
+}
+
+h6 {
+  @include font-size($fs-h6);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  @include add-prefix(transition, (all .3s ease));
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+  @include add-prefix(transition, (all .3s ease));
+  @include hover {
+    color: $theme-color;
+  }
+}
+p {
+  line-height: 1.7;
+}
+ul {
+  @extend %p-0;
+  @extend %m-0;
+  li {
+    @extend %list-none;
+  }
+}
+input, button, textarea {
+  outline: none !important;
+  box-shadow: none !important;
+}

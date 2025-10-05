@@ -1,0 +1,237 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+/*=========<<Margin & padding property Ulitilies start>>=========*/
+
+$space-stops: (
+  '10': 10px,
+  '15': 15px,
+  '20': 20px,
+  '25': 25px,
+  '30': 30px,
+  '35': 35px,
+  '40': 40px,
+  '45': 45px,
+  '50': 50px,
+  '55': 55px,
+  '60': 60px,
+  '65': 65px,
+  '70': 70px,
+  '75': 75px,
+  '80': 80px,
+);
+
+@each $key,
+$val in $space-stops {
+
+  /*-------<< margin properties >>-------*/
+  .m-#{$key} {
+    margin: #{$val};
+  }
+
+  .mt-#{$key} {
+    margin-block-start: #{$val};
+  }
+
+  .mb-#{$key} {
+    margin-block-end: #{$val};
+  }
+
+  .ms-#{$key} {
+    margin-inline-start: #{$val};
+  }
+
+  .me-#{$key} {
+    margin-inline-end: #{$val};
+  }
+
+  .my-#{$key} {
+    margin-block: #{$val};
+  }
+
+  .mx-#{$key} {
+    margin-inline: #{$val};
+  }
+}
+
+
+/*------<< Paddings >>---------*/
+@each $key,
+$val in $space-stops {
+
+  .p-#{$key} {
+    padding: #{$val};
+  }
+
+  .pt-#{$key} {
+    padding-block-start: #{$val};
+  }
+
+  .pb-#{$key} {
+    padding-block-end: #{$val};
+  }
+
+  .ps-#{$key} {
+    padding-inline-start: #{$val};
+  }
+
+  .pe-#{$key} {
+    padding-inline-start: #{$val};
+  }
+
+  .py-#{$key} {
+    padding-block: #{$val};
+  }
+
+  .px-#{$key} {
+    padding-inline: #{$val};
+  }
+}
+
+/*=========<<Margin property extends end>>=========*/
+
+
+
+.gradient-text--theme {
+  background: -webkit-linear-gradient($theme-color, $secondary-color);
+  @include add-prefix(background-clip, text);
+  @include add-prefix(text-fill-color, transparent);
+}
+
+
+.padding-top-xxl {
+  padding-block-start: 80px;
+
+  @include breakpoint(xl) {
+    padding-block-start: 160px;
+  }
+}
+
+
+.padding-top-xl {
+  padding-block-start: 80px;
+
+  @include breakpoint(xl) {
+    padding-block-start: 140px;
+  }
+}
+
+.padding-top {
+  padding-block-start: 80px;
+
+  @include breakpoint(xl) {
+    padding-block-start: 120px;
+  }
+
+  &--2x {
+    padding-block-start: 220px;
+
+    @include breakpoint(lg) {
+      padding-block-start: 240px;
+    }
+  }
+}
+
+.padding-bottom {
+  padding-block-end: 80px;
+
+  @include breakpoint(xl) {
+    padding-block-end: 120px;
+  }
+}
+
+.padding-bottom-xl {
+  padding-block-end: 80px;
+
+  @include breakpoint(xl) {
+    padding-block-end: 140px;
+  }
+}
+
+
+.padding-bottom-xxl {
+  padding-block-end: 80px;
+
+  @include breakpoint(xl) {
+    padding-block-end: 160px;
+  }
+}
+
+//Background related utilites
+.section__bg {
+  background-color: $section-bg-color-2;
+}
+
+.btn-bg {
+  background-color: $theme-color;
+}
+
+.title__bg {
+  background-color: $theme-color;
+}
+
+
+.bg {
+  &--section-color {
+    background-color: $section-bg-color !important;
+  }
+
+  &--cover {
+    background-size: cover;
+    background-position: center;
+  }
+
+  &--contain {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+  }
+}
+
+
+
+/* animation */
+.tp-slide-transtion {
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+
+.tp-brand-slide-element {
+  width: auto;
+  display: inline-block;
+}
+
+
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+
+.social-links {
+  @extend %flex;
+  gap: .75rem;
+
+  a {
+  border-radius: 20%;
+  display: grid;
+  height: 40px;
+  width: 40px;
+  background-color: #FF6600;
+  color: #fff;
+  place-items: center;
+  transition: all 0.3s ease-in-out;
+  font-size: 20px;
+
+    &:hover {
+      background-color: $secondary-color;
+      color: $title-color;
+    }
+  }
+}
+
+

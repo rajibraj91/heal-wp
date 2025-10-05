@@ -1,0 +1,99 @@
+/* ==================== *** Project Section Start Here *** ==================== */
+.project {
+
+  &__thumb{
+    img{
+      width: 100%;
+    }
+  }
+
+
+  .form-control {
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    height: 80px;
+  }
+
+
+
+  &__name {
+    h6 {
+      font-weight: 600;
+      padding-block-end: 16px;
+    }
+
+    .finance__item {
+      padding: 0;
+      @include flex-design (20px, center);
+
+      .finance__item-link {
+        border-radius: 50px;
+        background-color: $section-bg-color;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 17px 20px;
+        transition: $transition;
+        @extend %d-inline-block;
+
+        &:hover {
+          background-color: $theme-color;
+        }
+      }
+
+      a {
+        color: $black-color;
+      }
+    }
+  }
+
+  &__item {
+    @extend %of-hidden;
+    border-radius: 16px;
+    text-align: center;
+    background-color: $section-bg-color-2;
+
+    .project__content {
+      padding-block: 20px;
+
+      h5 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+/* ==================== *** Project Section End Here *** ==================== */
+
+
+
+
+/* ==================== *** Project Details Section Start Here *** ==================== */
+.name {
+  padding-block-start: 440px;
+  z-index: 1;
+  background-color: rgba($black-color, $alpha: .20);
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+
+  &__content {
+    span {
+      color: $white-color;
+    }
+
+    h1 {
+      font-size: 30px;
+      max-width: 16ch;
+      color: $white-color;
+      padding-block-end: 17px;
+
+      @include breakpoint (lg) {
+        font-size: 72px;
+      }
+    }
+  }
+}
+
+/* ==================== *** Project Details Section End Here *** ==================== */

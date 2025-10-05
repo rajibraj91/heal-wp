@@ -1,0 +1,44 @@
+.showcase {
+  &__item {
+    @extend %of-hidden;
+    border-radius: 1rem;
+    transition: $transition;
+    border: 2px solid transparent;
+
+    &-thumb {
+      position: relative;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .custom-btn {
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        transition: $transition;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    &:hover,
+    &.active {
+      border-color: $theme-color;
+
+      .showcase__item {
+        &-thumb {
+          .custom-btn {
+            bottom: calc(50% - 30px);
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+
+}

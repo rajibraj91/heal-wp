@@ -1,0 +1,219 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+.custom-btn {
+  @extend %d-inline-block,
+  %p-rel,
+  %of-hidden;
+  border-radius: 12px;
+  padding: 10px 16px;
+  background: transparent;
+  cursor: pointer;
+  transition: $transition;
+  outline: none;
+  background-color: $theme-color;
+  color: $white-color;
+
+
+  @include breakpoint(lg) {
+    padding: 16px 32px;
+  }
+
+
+  &--primary,
+  &--dark,
+  &--outline,
+  &--outline2 {
+    background-color: $theme-color;
+    color: $white-color;
+    z-index: 1;
+
+    &::after {
+      @extend %p-abs;
+      content: "";
+      width: 0;
+      height: 100%;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      background-color: $secondary-color;
+      transition: $transition;
+    }
+  }
+
+
+  &--outline,
+  &--outline2 {
+    background-color: transparent;
+    border: 1px solid $theme-color;
+    color: $theme-color;
+
+    &::after {
+      background-color: $theme-color;
+    }
+  }
+
+  &--outline2 {
+    border-color: $title-color !important;
+    color: $title-color;
+
+    &::after {
+      background-color: $title-color !important;
+    }
+  }
+
+
+  &--primary2 {
+    background-color: $theme-color;
+    color: $white-color;
+    z-index: 1;
+
+    &::after {
+      @extend %p-abs;
+      content: "";
+      width: 100%;
+      height: 0;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: $secondary-color;
+      transition: $transition;
+    }
+  }
+
+
+  &--dark{
+    background-color: $black-color !important;
+    border-color: $black-color;
+    &::after {
+      background-color: $secondary-color;
+    }
+  }
+
+  &--dark2{
+    background-color: rgba($color: $black-color, $alpha: 0.2)  !important;
+    border-color: $black-color;
+    color: $white-color;
+    &::after {
+      background-color: $secondary-color;
+    }
+  }
+
+
+  &--secondary {
+    background-color: $secondary-color;
+    color: $title-color;
+    border: 1px solid $secondary-color;
+    z-index: 1;
+
+    &::after {
+      @extend %p-abs;
+      content: "";
+      width: 0;
+      height: 100%;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      background-color: $theme-color;
+      transition: $transition;
+    }
+  }
+
+
+  &--secondary2 {
+    background-color: $secondary-color;
+    color: $title-color;
+    z-index: 1;
+
+    &::after {
+      @extend %p-abs;
+      content: "";
+      width: 100%;
+      height: 0;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      background-color: $theme-color;
+      transition: $transition;
+    }
+  }
+
+  &:hover {
+    &.custom-btn {
+
+      &--primary,
+      &--dark,
+      &--outline,
+      &--outline2 {
+        color: $title-color;
+        border: 1px solid $secondary-color;
+
+        &::after {
+          left: 0;
+          width: 100%;
+        }
+      }
+
+      &--outline,
+      &--outline2 {
+        color: $white-color;
+      }
+
+      &--primary2 {
+        color: $title-color;
+
+        &::after {
+          top: auto;
+          bottom: 0;
+          height: 100%;
+        }
+      }
+
+      &--dark{
+        background-color: $secondary-color;
+        border: 1px solid $secondary-color;
+        color: $black-color;
+      }
+
+      &--dark2{
+        background-color: $secondary-color;
+        border: 1px solid $secondary-color;
+        color: $secondary-color;
+      }
+
+      &--secondary {
+        color: $white-color;
+        border: 1px solid $theme-color;
+
+        &::after {
+          left: auto;
+          width: 100%;
+        }
+      }
+
+      &--secondary2 {
+        color: $white-color;
+
+        &::after {
+          top: auto;
+          bottom: 0;
+          height: 100%;
+        }
+      }
+
+
+    }
+  }
+}
+
+.btn-sm {
+  padding-block: 10px !important;
+}
+
+
+.grp__btn {
+  @extend %flex,
+  %align-i-center;
+  gap: 1rem;
+}

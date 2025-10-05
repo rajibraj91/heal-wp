@@ -1,0 +1,105 @@
+
+
+.team {
+  @extend %p-rel,
+  %of-hidden;
+  &__content {
+    & p {
+      font-size: 17px;
+      font-weight: 500;
+      padding-block-start: 20px;
+      margin-block-end: 25px;
+      @include breakpoint (lg) {
+        font-size: 18px;
+        padding-block-end: 29px;
+      }
+      @include breakpoint (xl) {
+        font-size: 22px;
+        padding-block-end: 29px;
+      }
+    }
+  }
+  &__thumb {
+    @include breakpoint (md) {
+      margin-top: 50px;
+    }
+    @include breakpoint (lg) {
+      margin-top: 0;
+    }
+  }
+
+
+  &__inner {
+    @extend %d-flex,
+    %align-i-center;
+    gap: 1rem;
+    &-thumb {
+      width: 70px;
+      @include breakpoint (lg) {
+        width: auto;
+      }
+
+      img{
+        border-radius: 99px;
+        border: 3px solid $theme-color;
+      }
+
+    }
+
+
+    &-content {
+      & p {
+        max-width: 33ch;
+        font-weight: 400;
+        font-size: 16px;
+        font-style: italic;
+        @extend %mb-0;
+        @extend %mt-0;
+        @include breakpoint (sm) {
+          font-size: 20px;
+          padding-block-end: 7px;
+        }
+        @include breakpoint (md) {
+          font-size: 22px;
+          font-weight: 500;
+          padding-block-end: 7px;
+        }
+        @include breakpoint (lg) {
+          font-size: 16px;
+          font-weight: 500;
+          padding-block-end: 7px;
+        }
+        @include breakpoint (xl) {
+          font-size: 21px;
+          font-weight: 500;
+        }
+      }
+
+
+      & span {
+        font-weight: 500;
+        font-size: 14px;
+        color: $title-color;
+        @include breakpoint (sm) {
+          font-weight: 600;
+          font-size: 20px;
+        }
+        @include breakpoint (md) {
+          font-weight: 600;
+          font-size: 20px;
+        }
+        @include breakpoint (lg) {
+          font-weight: 600;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

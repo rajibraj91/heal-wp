@@ -1,0 +1,100 @@
+.signup {
+  overflow: hidden;
+
+  &__creat {
+    padding-inline: 30px;
+    padding-block: 48px 26px;
+    border-radius: 20px;
+    background-color: $theme-color;
+
+    @include breakpoint(xl) {
+      padding-inline: 48px;
+    }
+
+    .form-control {
+      border: none;
+      font-size: 16px;
+      font-weight: 400;
+      padding-block: 14px;
+      padding-inline-start: 20px;
+    }
+  }
+
+  &__header-content {
+    padding-block-end: 34px;
+  }
+
+  .create__btn a {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 6px;
+    color: $black-color;
+    display: inline-block;
+    margin-block-end: 20px;
+    margin-block-start: 14px;
+    background-color: $theme-color;
+  }
+
+
+  .form-check {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-block-end: 28px;
+    color: $white-color;
+
+    &-input {
+      margin-right: 12px;
+
+      &:checked{
+        background-color: $black-color !important;
+      }
+    }
+
+    &-lavel{
+      color: $white-color;
+    }
+  }
+
+
+
+  &__content {
+    text-align: center;
+    padding-block-start: 48px;
+
+    & p {
+      font-size: 14px;
+      color: $white-color;
+
+      @include breakpoint (sm) {
+        font-size: 18px;
+      }
+
+      & a {
+        font-weight: 700;
+        color: $secondary-color;
+        text-decoration: underline;
+        margin-inline-start: 10px;
+      }
+    }
+  }
+
+  .style1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: $white-color;
+  }
+}
+
+
+
+/* sign in css */
+.forget__btn {
+  text-align: center;
+  padding-block-end: 28px;
+
+  a {
+    color: $secondary-color;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,23 @@
+/* ==================== *** Message Section Start Here *** ==================== */
+.message {
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+  .from {
+    border-radius: 20px;
+    padding-inline: 24px;
+    padding-block: 48px 60px;
+    background-color: $theme-color;
+
+    @include breakpoint(xl) {
+      padding-inline: 48px;
+    }
+  }
+
+  .custom-btn {
+    background-color: $black-color;
+  }
+}
+
+/* ==================== *** Message Section End Here *** ==================== */

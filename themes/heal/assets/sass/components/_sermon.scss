@@ -1,0 +1,161 @@
+.sermon-section {
+    background: $ash-color;
+}
+.sermon {
+    &__left {}
+    &__slider {
+        .swiper-slide {
+            .sermon__item {
+                @extend %mb-30;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    &__item {}
+    &__inner {
+        @extend %flex;
+        @extend %align-items-center;
+    }
+    &__thumb {
+        @extend %flex;
+        @extend %w-100;
+        @include breakpoint(sm) {
+            width: 40%
+        }
+    }
+    &__social {
+        ul {
+            @extend %mr-10;
+            @include breakpoint(max-sm) {
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 10px;
+            }
+            @include breakpoint(lg) {
+                @include breakpoint(max-xl) {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-bottom: 10px;
+                }
+            }
+            li {
+                a {
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    @extend %text-center;
+                    border: 2px solid $text-color;
+                    margin: 5px;
+                    @extend %d-inline-block;
+                    @include font-size(16px);
+                    @include add-prefix(border-radius, (3px));
+                    @include add-prefix(transition, (all .3s ease));
+                    &:hover {
+                        color: $white-color;
+                        background: $theme-color;
+                        border-color: $theme-color;
+                    }
+                }
+            }
+        }
+    }
+    &__image {
+        @include breakpoint(max-sm) {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        @include breakpoint(lg) {
+            @include breakpoint(max-xl) {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+        img {
+            // @extend %w-100;
+        }
+    }
+    &__content {
+        @extend %w-100;
+        @include breakpoint(sm) {
+            width: 60%
+        }
+        @include breakpoint(lg) {
+            @include breakpoint(max-xl) {
+                padding-left: 30px;
+            }
+        }
+        h5 {
+            @extend %mb-5;
+        }
+        >span {
+            @extend %d-inline-block;
+            @extend %mb-10;
+        }
+        p {}
+        .default-btn {
+            line-height: 31px;
+            @include font-size(12px);
+            @extend %text-extabold;
+        }
+    }
+
+    &__right {}
+}
+
+
+// accordion
+.accordion {
+    .accordion-item {
+        @extend %mb-10;
+        &:not(:first-of-type) {
+            border-top: 1px solid $border-color;
+        }
+        .accordion-header {
+            .accordion-button {
+                background: $theme-color;
+                color: $white-color;
+                @extend %text-extabold;
+                @extend %text-uppercase;
+                outline: none;
+                box-shadow: none;
+                @include font-size(15px);
+                &::after {
+                    background-image: none;
+                    content: "-";
+                    color: $title-color;
+                    background: $white-color;
+                    text-align: center;
+                    width: 20px;
+                    height: 20px;
+                    line-height: 15px;
+                    @extend %text-regular;
+                    @include font-size(30px);
+                    @include add-prefix(border-radius, (100%));
+                }
+                &.collapsed {
+                    background: $white-color;
+                    color: $title-color;
+                    &::after {
+                        content: "+";
+                        color: $white-color;
+                        background: $title-color;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+        .accordion-collapse {
+            .accordion-body {
+                @extend %p-20;
+                img {
+                    @extend %mb-15;
+                }
+                p {
+                    @extend %mb-0;
+                }
+            }
+        }
+    }
+}

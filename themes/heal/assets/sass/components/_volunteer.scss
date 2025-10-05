@@ -1,0 +1,138 @@
+.volunteer {
+    &__item {}
+    &__inner {
+        @extend %py-30;
+        @extend %px-15;
+        border-top: 4px solid transparent;
+        @include add-prefix(transition, (all .3s ease));
+        &:hover {
+            border-color: $theme-color2;
+            background: $ash-color;
+            .volunteer__thumb {
+                border-color: $white-color;
+                img {
+                    @include add-prefix(transform, (scale(1.2)));
+                }
+            }
+            .volunteer__content {
+                h5 {
+                    color: $theme-color2;
+                }
+            }
+        }
+    }
+    &__thumb {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 20px;
+        border: 8px solid $ash-color;
+        @extend %of-hidden;
+        @include add-prefix(border-radius, (100%));
+        @include add-prefix(transition, (all .3s ease));
+        img {}
+    }
+    &__content {
+        h5 {
+            @include font-size(20px);
+            @extend %text-uppercase;
+            @extend %mb-0;
+        }
+        >span {
+            @extend %p-rel;
+            @extend %d-inline-block;
+            @extend %mb-30;
+            &::after {
+                @extend %pos-center;
+                width: 20px;
+                height: 6px;
+                background: $theme-color2;
+                top: auto;
+                bottom: -20px;
+            }
+        }
+    }
+    &-style2 {
+        .volunteer__inner {
+            @extend %flex;
+            @extend %p-0;
+            background: transparent;
+            @extend %border-none;
+            &:hover {
+                .volunteer__thumb {
+                    img {
+                        @include add-prefix(transform, (scale(1)));
+                    }
+                }
+            }
+        }
+        .volunteer__thumb {
+            width: 100%;
+            height: auto;
+            @extend %border-none;
+            @extend %mb-30;
+            @include add-prefix(border-radius, (0));
+            @include breakpoint(lg) {
+                width: 35%;
+                margin-bottom: 0;
+            }
+            img {
+                @extend %w-100;
+            }
+            i, svg {
+                color: $theme-color3;
+                fill: $theme-color3;
+                width: 28px;
+            }
+        }
+        .volunteer__content {
+            @extend %w-100;
+            @include breakpoint(lg) {
+                width: calc(100% - 35%);
+                padding-left: 30px;
+            }
+        }
+    }
+    &__top {
+        @extend %flex;
+        @extend %mb-15;
+    }
+    &__icon {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        color: $theme-color2;
+        border: 2px solid $theme-color2;
+        @extend %text-center;
+        @include font-size(24px);
+        @include add-prefix(border-radius, (100%));
+        @include add-prefix(transition, (all .3s ease));
+        @include breakpoint(max-sm) {
+            margin-bottom: 20px;
+        }
+        i, svg {
+            color: $theme-color3;
+            fill: $theme-color3;
+            width: 28px;
+        }
+    }
+    &__title {
+        @extend %w-100;
+        @include breakpoint(sm) {
+            width: calc(100% - 100px);
+            padding-left: 30px;
+        }
+        h5 {
+            @extend %text-uppercase;
+            @extend %mb-5;
+        }
+        h6 {
+            @include font-size(15px);
+            @extend %text-bold;
+        }
+    }
+    &__bottom {
+        p {
+            @extend %mb-25;
+        }
+    }
+}

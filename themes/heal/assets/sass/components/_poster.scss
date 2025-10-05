@@ -1,0 +1,178 @@
+.poster-section {}
+.poster {
+    &__left {}
+    &__slider {}
+    &__item {}
+    &__inner {
+        @extend %flex;
+        @include breakpoint(sm) {
+            justify-content: space-between;
+        }
+    }
+    &__thumbpart {
+        @extend %w-100;
+        @include breakpoint(sm) {
+            width: 30%;
+        }
+    }
+    &__thumbpart-thumb {
+        @extend %text-center;
+        @extend %mb-15;
+        img {
+            @include add-prefix(border-radius, (100%));
+        }
+    }
+    &__thumbpart-content {
+        @extend %text-center;
+        h5 {
+            @extend %text-uppercase;
+            @extend %mb-5;
+        }
+        span {
+            @extend %d-inline-block;
+            @extend %mb-5;
+        }
+        ul {
+            @extend %flex;
+            @extend %justify-center;
+            li {
+                a {
+                    @extend %p-5;
+                    @extend %d-inline-block;
+                }
+            }
+        }
+    }
+    &__contentpart {
+        @extend %w-100;
+        @extend %p-30;
+        @extend %p-rel;
+        @extend %m-15;
+        border: 1px solid $border-color;
+        box-shadow:  rgba(227, 231, 232, 0.9) 8px 8px 0px;
+        @include breakpoint(sm) {
+            width: 60%;
+            &::before {
+                position: absolute;
+                content: "";
+                left: -30px;
+                top: 70px;
+                width: 0;
+                height: 0;
+                border-top: 30px solid $ash-color;
+                border-left: 30px solid transparent;
+            }
+        }
+        h5 {
+            @include font-size(22px);
+            @extend %text-uppercase;
+        }
+        h6 {
+            @include font-size(15px);
+            @extend %mb-15;
+        }
+        blockquote {
+            p {
+                @extend %text-italic;
+                @extend %text-bold;
+                @extend %px-20;
+                @extend %p-rel;
+                &::after, &::before {
+                    @extend %p-abs;
+                    font-family: "Font Awesome 5 Free";
+                }
+                &::before {
+                    content: "\f10d";
+                    left: 0;
+                }
+                &::after {
+                    content: "\f10e";
+                    right: 0;
+                }
+            }
+        }
+    }
+    &__right {
+        h3 {
+            @extend %text-uppercase;
+            @extend %mb-15;
+            @include font-size(32px);
+        }
+        img {
+            @extend %mb-15;
+        }
+        p {
+            @extend %mb-20;
+        }
+        .default-btn {
+
+        }
+    }
+    &__navi {
+        @extend %flex;
+        @extend %p-abs;
+        @extend %z-index;
+        top: 70%;
+        left: 65px;
+        @include breakpoint(max-xl) {
+            display: none;
+        }
+        div {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            color: $title-color;
+            background: $ash-color;
+            @extend %text-center;
+            @extend %m-5;
+            @include add-prefix(transition, (all .3s ease));
+            &:hover {
+                color: $white-color;
+                background: $theme-color;
+            }
+        }
+    }
+}
+
+.client__review {
+    .poster {
+        &__item {}
+        &__inner {}
+        &__filter {
+            button {
+                padding: 0;
+                width: 100px;
+                height: 100px;
+                @extend %border-none;
+                @extend %m-5;
+                opacity: .3;
+                &.active {
+                    opacity: 1;
+                }
+                img {
+
+                }
+            }
+        }
+        &__contentpart {
+            width: 100% !important;
+            @include breakpoint(sm) {
+                width: 100% !important;
+            }
+            &::before {
+                display: none;
+            }
+            h6 {
+                @extend %mb-0;
+            }
+            blockquote {
+                p {
+                    line-height: 36px;
+                    &::after {
+                        @extend %d-none;
+                    }
+                }
+            }
+        }
+    }
+} 

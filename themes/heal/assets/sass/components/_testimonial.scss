@@ -1,0 +1,65 @@
+.testimonial-section {
+    background: url(../../assets/images/testimonial/bg.jpg);
+    &.style-2 {
+        background: url(../../assets/images/testimonial/bg-2.jpg);
+    }
+}
+.testimonial {
+    @include breakpoint(xl) {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    &__slider {}
+    &__item {}
+    &__inner {}
+    &__thumb {
+        @extend %mb-30;
+    }
+    &__icon {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        margin: 0 auto 30px;
+        border: 2px solid $theme-color3;
+        color: $theme-color3;
+        @extend %text-center;
+        @include font-size(24px);
+        @include add-prefix(border-radius, (100%));
+        svg, i {
+            color: $theme-color3;
+            fill: $theme-color3;
+            width: 30px;
+        }
+    }
+    &__content {
+        @extend %mb-30;
+        h5 {
+            color: $white-color;
+            @extend %mb-40;
+            @extend %p-rel;
+            @include font-size(24px);
+            @extend %text-uppercase;
+            &::after {
+                @extend %pos-center;
+                width: 30px;
+                height: 5px;
+                background: $theme-color2;
+                top: auto;
+                bottom: -20px;
+            }
+        }
+        p {
+            @include font-size(22px);
+            @extend %text-italic;
+            color: $white-color;
+            span {
+                color: $theme-color3;
+            }
+        }
+    }
+    &__pagination {
+        span {
+            background: $white-color;
+        }
+    }
+}

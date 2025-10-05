@@ -1,0 +1,33 @@
+
+
+.donate-range-section {
+    background: url(../../assets/images/donate/bg/01.jpg) no-repeat;
+    .section-wrapper {
+        @include breakpoint(xl) {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    }
+}
+.donaterange {
+    @extend %text-center;
+    h3 {
+        @include font-size(35px);
+        color: $white-color;
+        @extend %text-regular;
+        span {
+            color: $theme-color;
+        }
+    }
+    &__bars {
+        height: 20px;
+        background: $white-color;
+        @extend %flex;
+        @extend %my-30;
+
+    }
+    &__bar {
+        height: 100%;
+        background: $theme-color;
+    }
+}

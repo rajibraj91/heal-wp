@@ -1,0 +1,118 @@
+form {
+    input,
+    textarea {
+        border: 1px solid $border-color;
+        padding: 15px;
+        color: $title-color;
+        outline: none;
+        &:focus {
+            // outline: $theme-color3;
+            border-color: $theme-color3;
+        }
+    }
+    input {
+        height: 50px;
+        margin-bottom: 30px;
+        @extend %w-100;
+        @include breakpoint (sm) {
+            width: calc(100% / 2 - 15px);
+        }
+    }
+    textarea {
+        margin-bottom: 35px;
+        @extend %w-100;
+    }
+    button {
+        @extend %c-pointer;
+        &.default-btn {
+            padding: 0px 30px;
+            border: none;
+            outline: none;
+            line-height: 35px;
+            border: 2px solid $theme-color3;
+            background: transparent !important;
+            color: $theme-color3;
+            @include font-size(14px);
+            &::before {
+                background: $theme-color3 !important;
+            }
+            &:hover {
+                span {
+                    color: $white-color;
+                }
+            }
+        }
+    }
+}
+.form-message{
+    @extend %mt-30;
+    @extend %mb-0;
+    font-size: 14px;
+    &.success {
+        color: green;
+    }
+    &.error {
+        color: red;
+    }
+}
+.contact {
+    &__form {
+        // @extend %p-30;
+        h4 {
+            @extend %text-uppercase;
+            @include font-size(20px);
+        }
+    }
+    &__info {
+        h4 {
+            @extend %text-uppercase;
+            @include font-size(20px);
+        }
+        ul {
+            li {
+                @extend %flex;
+                @extend %py-10;
+                @extend %justify-between;
+                @extend %align-items-center;
+                &:hover {
+                    .contact__info-left {
+                        color: $white-color;
+                        background: $theme-color3;
+                        i, svg {
+                            fill: $white-color;
+                            color: $white-color;
+                        }
+                    }
+                }
+            }
+        }
+        &-left {
+            width: 34px;
+            height: 34px;
+            line-height: 30px;
+            border-radius: 100%;
+            color: $theme-color3;
+            border: 2px solid $theme-color3;
+            @extend %text-center;
+            @include font-size(14px);
+            @include add-prefix(transition, (all .3s ease));
+            @include breakpoint(max-sm) {
+                margin-bottom: 15px;
+            }
+            i, svg {
+                width: 14px;
+                color: $theme-color3;
+                fill: $theme-color3;
+            }
+        }
+        &-right {
+            @extend %w-100;
+            @include breakpoint(sm) {
+                width: calc(100% - 50px);
+            }
+            p {
+                @extend %mb-0;
+            }
+        }
+    }
+}

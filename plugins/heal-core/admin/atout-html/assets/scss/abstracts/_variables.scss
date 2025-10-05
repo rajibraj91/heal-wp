@@ -1,0 +1,85 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+
+
+//*-----------------------------------
+//*** Custom variables for this template
+//*-----------------------------------
+
+//Template Theme colors
+$theme-color: #FF6600;
+// $theme-color:#51FF96;
+$secondary-color: #C9FF70;
+$body-bg-color: #fff;
+$section-bg-color: #F5F8FF;
+$section-bg-color-2: #F5F3FF;
+$section-bg-color-3: #F5F5F5;
+$section-bg-color-4: #FBE501;
+
+//Template Text colors
+$title-color: #1F224C;
+$title-color-2: #1D40BE;
+$text-color: #3C396F;
+$text-color-2: #1E1E1E;
+$white-color: #fff;
+$black-color: #000;
+$text-color-3: #9FA9FF;
+$footer-bg: #232332;
+$cp-bg: #2C2C3B;
+
+
+//Template Accent colors
+$border-color: #2C2C3B;
+
+
+
+
+// social-media color
+$facebook: #3b5998;
+$twitter: #55acee;
+$linkedin: #007bb5;
+$skype: #2fb7df;
+$youtube: #cd201f;
+$google: #dd4b39;
+$camera: #e4405f;
+$instagram: #e4405f;
+$tumblr: #34465d;
+$behance: #1769ff;
+$star: #F59E0B;
+$green: #0be881;
+$green-h: #0fbcf9;
+$red: #f53b57;
+$yellow: #FBE501;
+$nell: #212fb4;
+$navy: #d8e0f3;
+$placeholder: #a0a6bc;
+
+
+
+
+//Template Font family
+$text-font: "Plus Jakarta Sans", sans-serif;
+$text-font-2: "Montserrat", sans-serif;
+$text-font-3: "Geist", sans-serif;
+
+//icon font family
+$icon-font: 'Font Awesome 6 Free';
+
+//Template font sizes
+$fs-base: 18px !default;
+$fs-small: 14px;
+$fs-xl-max: 36px;
+
+//Template font sizes
+$fs-h1: 72px;
+$fs-h2: 70px;
+$fs-h3: 48px;
+$fs-h4: 32px;
+$fs-h5: 20px;
+$fs-h6: 18px;
+
+//Template transition
+$transition: all .3s ease-in-out;

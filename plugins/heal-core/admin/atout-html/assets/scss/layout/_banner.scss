@@ -1,0 +1,35 @@
+// ********** Banner Section CSS Start Here ********** //
+.banner {
+  padding-block-end: 213px;
+  padding-block-start: 280px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-inline: 16px;
+  border-radius: 16px;
+  padding-block-start: 100px;
+  padding-block-end: 80px;
+  @include breakpoint (lg) {
+    padding-block-start: 120px;
+    padding-block-end: 100px;
+  }
+  @include breakpoint (xl) {
+    padding-block-start: 180px;
+    padding-block-end: 150px;
+  }
+  @include breakpoint (xxl) {
+    padding-block-end: 213px;
+    padding-block-start: 280px;
+  }
+
+  &__content {
+    max-width: 600px;
+    h1 {
+      padding-block-end: 6px;
+    }
+    p {
+      color: $title-color;
+      padding-block-end: 20px;
+    }
+  }
+}
+// ********** Banner Section CSS End Here ********** //

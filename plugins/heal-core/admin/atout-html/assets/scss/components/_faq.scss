@@ -1,0 +1,55 @@
+.accordion {
+
+  &-item {
+    border-radius: 1rem !important;
+    overflow: hidden;
+    @extend %mb-20;
+
+  }
+
+  &-button {
+    border-radius: 1rem;
+    transition: $transition;
+    color: $theme-color;
+    font-weight: 600;
+    overflow: hidden;
+    @extend %p-20;
+
+    span {
+      font-size: $fs-h6;
+      margin-bottom: 0;
+    }
+
+    &::after {
+      color: $theme-color;
+    }
+
+
+    &:hover {
+      background-color: $theme-color;
+
+      &::after {
+        color: $white-color;
+      }
+
+      span {
+        color: $white-color;
+      }
+    }
+  }
+}
+
+.faq {
+  &__content {
+    @extend %d-flex,
+    %align-i-center;
+  }
+}
+
+
+
+
+.accordion-button:not(.collapsed){
+  background-color: $theme-color !important;
+  color: $white-color;
+}

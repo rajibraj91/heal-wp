@@ -1,0 +1,46 @@
+.pageheader-section {
+    padding: 120px 0;
+    background: $ash-color;
+}
+.pageheader {
+    @extend %flex;
+    @extend %justify-between;
+    @extend %align-items-center;
+    &__title {
+        h1 {
+            @extend %text-uppercase;
+            @include font-size(24px);
+            @include breakpoint(sm) {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &__breadcamp {
+        .breadcrumb {
+            ul {
+                @extend %flex;
+                gap: 15px;
+                li {
+                    a {
+                        font-weight: 700;
+                        color: $title-color;
+                        position: relative;
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            width: 2px;
+                            height: 15px;
+                            background: $title-color;
+                            right: -8px;
+                            transform: rotate(15deg);
+                            bottom: 0px;
+                        }
+                        &:hover {
+                            color: $theme-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

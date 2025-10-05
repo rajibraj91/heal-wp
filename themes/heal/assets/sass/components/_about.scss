@@ -1,0 +1,239 @@
+// about section css 
+.about-section {
+    // background: $bg-ash;
+}
+.about {
+    &__item {}
+    &__inner {
+        @extend %text-center;
+        background: $ash-color;
+        padding: 100px 40px 65px;
+        &:hover {
+            .about__iconbg {
+                background: $theme-color;
+                i, svg {
+                    color: $white-color;
+                    fill: $white-color;
+                }
+            }
+            .about__content {
+                h5 {
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+    &__thumb {
+        @extend %mb-15;
+    }
+    &__iconbg {
+        width: 100px;
+        height: 60px;
+        line-height: 60px;
+        border-left: 2px solid $theme-color;
+        border-right: 2px solid $theme-color;
+        margin-bottom: 40px;
+        font-size: 24px;
+        @extend %p-rel;
+        @extend %d-inline-block;
+        @include add-prefix(border-radius, (5px));
+        @include add-prefix(transition, (all .3s ease));
+        &::after, &::before {
+            width: inherit;
+            height: inherit;
+            border-radius: inherit;
+            background: inherit;
+            border-left: 2px solid $theme-color;
+            border-right: 2px solid $theme-color;
+            @extend %p-abs;
+        }
+        &::after {
+            margin-left: -63px;
+            @include add-prefix(transform, (rotate(-60deg)));
+        }
+        &::before {
+            margin-left: -37px;
+            @include add-prefix(transform, (rotate(60deg)));
+        }
+        i, svg {
+            width: 24px;
+            color: $title-color;
+            @extend %z-index;
+            @include add-prefix(transition, (all .3s ease));
+        }
+    }
+    &__content {
+        h5 {
+            @include add-prefix(transition, (all .3s ease));
+            @extend %text-uppercase;
+            @include font-size(22px);
+        }
+        p {
+            @extend %mb-0;
+        }
+    }
+    &__filter {
+        @include breakpoint(xl) {
+            width: 700px;
+        }
+        button {
+            @extend %p-10;
+            @extend %m-5;
+            text-align: left;
+            border: 1px solid $border-color !important;
+            @include add-prefix(border-radius, (0px) !important);
+            @include add-prefix(transition, (all .3s ease));
+            @include breakpoint(xl) {
+                margin: 0;
+                border: none !important;
+                border-bottom: 1px solid $border-color !important;
+                padding-left: 0;
+                padding-right: 0;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            img {
+                @extend %mr-15;
+                @extend %d-none;
+                @include breakpoint(xl) {
+                    display: inline-block;
+                }
+            }
+            span {
+                @extend %text-bold;
+                @extend %text-uppercase;
+                color: $title-color;
+                @include breakpoint(max-sm) {
+                    font-size: 12px;
+                }
+            }
+            &.active {
+                background-color: $ash-color !important;
+                @extend %p-rel;
+                @include breakpoint(xl) {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+                &::after {
+                    @extend %p-abs;
+                    top: 0;
+                    left: 100%;
+                    width: 0;
+                    height: 0;
+                    border-top: 42.5px solid transparent;
+                    border-left: 42.5px solid $ash-color;
+                    border-bottom: 42.5px solid transparent;
+                    @include add-prefix(transition, (all .3s ease));
+                    @extend %d-none;
+                    @include breakpoint(xl) {
+                        display: block;
+                    }
+                }
+                span {
+                    color: $theme-color2;
+                }
+            }
+            &:last-child {
+                @include breakpoint(xl) {
+                    border-bottom: none !important;
+                }
+            }
+        }
+    }
+    &__filtercontent {
+        .about__inner {
+            background: transparent;
+            @extend %flex;
+            @extend %p-30;
+            @extend %align-items-center;
+        }
+        .about__thumb {
+            @extend %w-100;
+            @include breakpoint(sm) {
+                width: 50%;
+            }
+        }
+        .about__content {
+            @extend %w-100;
+            text-align: left;
+            @include breakpoint(sm) {
+                width: 50%;
+                padding-left: 30px;
+            }
+            h5 {
+                @extend %mb-10;
+            }
+            h6 {
+                @include font-size(15px);
+                @extend %mb-20;
+            }
+            p {
+                @extend %mb-30;
+            }
+            .default-btn {}
+        }
+    }
+    &-style2 {
+        .volunteer {
+            margin-top: 60px;
+            &__item {}
+            &__inner {
+                // flex-direction: row-reverse;
+                &:hover {
+                    .volunteer__content {
+                        h5 {
+                            color: $title-color;
+                        }
+                    }
+                }
+            }
+            &__content {
+                padding-right: 30px;
+                @include breakpoint(lg) {
+                    padding-left: 0 !important;
+                }
+            }
+            &__icon {
+                border-color: $theme-color3;
+                color: $theme-color3;
+                i, svg {
+                    color: $theme-color3;
+                    fill: $theme-color3;
+                    width: 28px;
+                }
+            }
+        }
+        .about {
+            &__slider {}
+            &__thumb {
+                @extend %mb-0;
+                img {
+                    @extend %d-block;
+                    @extend %w-100;
+                }
+            }
+            &__pagination {
+                @extend %text-center;
+                bottom: 15px;
+                @extend %p-abs;
+                @extend %z-index;
+                span {
+                    background: $theme-color3;
+                }
+            }
+        }
+    }
+}
+.about {
+    .col-12 {
+        &:nth-child(even) {
+            .about__item {
+                .about__inner {
+                    background: $ash-color2;
+                }
+            }
+        }
+    }
+}
+
+

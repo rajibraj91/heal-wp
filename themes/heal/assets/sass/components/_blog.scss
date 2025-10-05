@@ -1,0 +1,384 @@
+.blog-section {}
+.blog {
+    &__item {
+        &:last-child {
+            .blog__inner {
+                @extend %mb-0;
+                @extend %pb-0;
+                @extend %border-none;
+            }
+        }
+    }
+    &__inner {
+        @extend %flex;
+        @extend %mb-30;
+        @extend %pb-30;
+        border-bottom: 1px solid $border-color;
+        &:hover {
+            .blog__thumb {
+                img {
+                    @include add-prefix(transform, (scale(1.2)));
+                }
+            }
+            .blog__content {
+                h5 {
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+    &__thumb {
+        @extend %w-100;
+        @extend %of-hidden;
+        @extend %mb-15;
+        @include breakpoint(sm) {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 0;
+        }
+        a {
+            @extend %d-block, %h-100;
+            img {
+                @extend %h-100;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+    &__content {
+        @extend %w-100;
+        @include breakpoint(sm) {
+            width: calc(100% - 130px);
+            padding-left: 30px;
+        }
+        h5 {
+            @extend %text-uppercase;
+            @extend %text-1;
+            @include font-size(20px);
+        }
+        .meta-post {
+            @extend %flex;
+            @extend %mb-15;
+            li {
+                @extend %px-15;
+                border-left: 1px solid $border-color;
+                &:first-child {
+                    padding-left: 0;
+                    border-left: none;
+                }
+                a {
+
+                }
+            }
+        }
+        p {
+            @extend %mb-20;
+        }
+        .default-btn {
+            line-height: 35px;
+        }
+    }
+    &-style2 {
+        .blog {
+            &__item {}
+            &__inner {}
+            &__thumb {
+                @extend %w-100;
+                height: auto;
+                a {
+                    @extend %d-block;
+                    img {
+                        @extend %d-block;
+                    }
+                }
+            }
+            &__content {
+                @extend %w-100;
+                @extend %flex;
+                @extend %z-index;
+                margin-top: -59px;
+            }
+            &__meta {
+                width: 120px;
+                margin-top: 15px;
+                @extend %text-right;
+                
+                ul {
+                    li {
+                        padding: 2px 0;
+                    }
+                }
+            }
+            &__icon {
+                width: 44px;
+                height: 44px;
+                line-height: 44px;
+                margin-left: auto;
+                margin-bottom: 15px;
+                @extend %text-center;
+                background: $theme-color2;
+                color: $white-color;
+                @include font-size(24px);
+            }
+            &__postcontent {
+                width: calc(100% - 120px);
+                padding: 20px;
+                background: $white-color;
+                h5 {
+                    @include font-size(18px);
+                }
+                p {}
+                .default-btn {
+                    background: transparent;
+                    &:hover {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+    &-single {
+        .blog {
+            &__inner {
+                &:hover {
+                    .blog__thumb {
+                        img {
+                            @include add-prefix(transform, (scale(1)));
+                        }
+                    }
+                    .blog__content {
+                        h5 {
+                            color: $title-color !important;
+                        }
+                    }
+                }
+            }
+            &__content {
+                h5 {
+                    @include font-size(24px);
+                }
+                h4 {
+                    @extend %text-uppercase;
+                    @extend %text-1;
+                    @include font-size(18px);
+                }
+                blockquote {
+                    @extend %p-30;
+                    @extend %my-30;
+                    border: 3px solid $border-color;
+                    p {
+                        @extend %text-bold;
+                        @extend %text-italic;
+                        @extend %mb-0;
+                        // @include 
+                    }
+                }
+            }
+            &__meta {
+                @include breakpoint(max-sm) {
+                    width: 100%;
+                    text-align: left;
+                    padding: 0 20px;
+                    ul {
+                        li {
+                            display: inline-block;
+                            padding: 5px;
+                        }
+                    }
+                    .blog__icon {
+                        right: auto;
+                        margin-left: 0;
+                    }
+                }
+            }
+            &__postcontent {
+                @include breakpoint(max-sm) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &__tags {
+        @extend %flex;
+        @extend %justify-between;
+        @extend %align-items-center;
+        @extend %w-100;
+        @extend %p-15;
+        background: $ash-color;
+        &-left {
+            @extend %flex;
+            @extend %align-items-center;
+            @extend %mb-10;
+            @include breakpoint(xl) {
+                margin-bottom: 0;
+            }
+            ul {
+                li {
+                    @extend %d-inline-block;
+                    a {
+                        @extend %d-inline-block;
+                        padding: 7px 10px;
+                        @extend %m-5;
+                        background: $white-color;
+                        color: $title-color;
+                        @include add-prefix(border-radius, (3px));
+                        @include font-size(14px);
+                        @extend %text-bold;
+                        &:hover {
+                            background: $theme-color2;
+                            color: $white-color;
+                        }
+                    }
+                }
+            }
+        }
+        &-right {
+            @extend %flex;
+        }
+        &-title {
+            @extend %d-inline-block;
+            @extend %mr-5;
+            p {
+                margin-bottom: 0 !important;
+                @extend %text-bold;
+            }
+        }
+    }
+    &__author {
+        @extend %flex;
+        @extend %align-items-center;
+        @extend %p-30;
+        background: $ash-color;
+        &-thumb {
+            width: 140px;
+            img {
+                @include add-prefix(border-radius, (6px));
+            }
+        }
+        &-content {
+            @extend %w-100;
+            @extend %pt-30;
+            @include breakpoint(sm) {
+                width: calc(100% - 140px);
+                padding-top: 0;
+                padding-left: 30px;
+            }
+            h5 {
+                @extend %text-uppercase;
+                @include font-size(22px);
+                @extend %mb-5;
+            }
+            p {}
+            ul {
+                li {
+                    a {}
+                }
+            }
+        }
+    }
+    &__navigation {
+        @extend %p-30;
+        @extend %mt-30;
+        border: 3px solid $border-color;
+        ul {
+            @extend %flex;
+            @extend %justify-between;
+            li {
+                a {
+                    @extend %text-bold;
+                }
+            }
+        }
+    }
+    &__comments {
+        @extend %my-30;
+        &-title {
+            h4 {
+                @extend %text-uppercase;
+                @include font-size(24px);
+            }
+        }
+        &-details {
+            >ul>li {
+                &:first-child {
+                    @extend %border-none;
+                }
+            }
+            ul {
+                li {
+                    @extend %flex;
+                    @extend %py-30;
+                    border-top: 1px solid $border-color;
+                    
+                }
+                ul {
+                    @extend %ml-30;
+                    li {
+                        @extend %mt-30;
+                        &:last-child {
+                            @extend %pb-0;
+                        }
+                    }
+                }
+            }
+        }
+        &-thumb {
+            width: 80px;
+        }
+        &-content {
+            width: calc(100% - 80px);
+            @extend %pl-15;
+            .default-btn {
+                line-height: 25px;
+                padding: 0 15px;
+                border: 2px solid $theme-color2;
+                color: $theme-color2;
+                @include font-size(13px);
+                @extend %text-bold;
+                background: transparent !important;
+                &::before {
+                    background: $theme-color2;
+                }
+                &:hover {
+                    span {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+    &__respond {
+        &-title {
+            @extend %mb-15;
+            h4 {
+                @extend %text-uppercase;
+                @include font-size(24px);
+            }
+        }
+        &-details {
+            form {
+                @extend %flex;
+                @extend %justify-between;
+                input {
+                    &[type=checkbox], &[type=radio] {
+                        @extend %d-inline-block;
+                        width: 20px;
+                        height: 20px;
+                        @extend %mb-0;
+                    }
+                }
+                textarea {}
+                p {
+                    @extend %flex;
+                    @extend %align-items-center;
+                    @extend %mb-30;
+                    flex-wrap: nowrap;
+                    input {
+                        @extend %mr-5;
+                    }
+                }
+                
+            }
+        }
+    }
+}

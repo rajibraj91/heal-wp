@@ -1,0 +1,54 @@
+/* ==================== *** Integrates Section Start Here *** ==================== */
+.integrates {
+  background-color: $section-bg-color;
+
+  &__item {
+    padding-block: 32px 18px;
+    padding-inline: 22px 24px;
+    text-align: center;
+    background-color: $white-color;
+    border-radius: 16px;
+    transition: $transition;
+  }
+
+  &__thumb {
+    padding-block-end: 16px;
+  }
+
+  &__content {
+    h4 {
+      font-weight: 700;
+      font-size: 24px;
+      padding-block-end: 4px;
+    }
+
+    span {
+      font-size: 18px;
+      font-weight: 500;
+      color: $text-color-3;
+      padding-block-end: 10px;
+      @extend %d-inline-block;
+    }
+
+    p {
+      padding-block-start: 6px;
+    }
+  }
+
+  &-style1 {
+    padding-top: 100px;
+    padding-bottom: 73px;
+  }
+}
+
+.integratessingle__content {
+  @include breakpoint (lg) {
+    padding-top: 40px;
+  }
+}
+
+.integrates__item:hover {
+  transform: translateY(-10px);
+}
+
+/* ==================== *** Integrates Section End Here *** ==================== */

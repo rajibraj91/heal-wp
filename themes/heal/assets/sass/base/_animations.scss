@@ -1,0 +1,76 @@
+/*===== keyframes for banner img ====*/
+@include keyframes(santa-ride) {
+    0% {
+        transform: translateX(-20%) ;
+    }
+    100% {
+        transform: translateX(20%);
+    }
+}
+
+
+@keyframes run_animation {
+    0% {
+        left: -10%;
+        opacity: 0;
+    }
+    5%{
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+        left: 75%;
+    }
+    80% {
+        left: 85%;
+        opacity: .5;
+    }
+    90% {
+        left: 95%;
+        opacity: .4;
+    }
+    100% {
+        right: -20%;
+        opacity: 0;
+        left: auto;
+    }
+}
+
+@keyframes angle-move {
+    0%, 100% {
+      transform: translateY(0) rotate(-6deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+@keyframes lab_top_up {
+    0% {
+        transform: translateY(-15px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+
+@keyframes run_animation {
+    0% {
+        right: 10%;
+        opacity: 0;
+    }
+    5%{
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        right: 83%;
+        opacity: 0;
+    }
+}

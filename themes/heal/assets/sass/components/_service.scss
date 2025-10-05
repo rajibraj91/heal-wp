@@ -1,0 +1,48 @@
+.service {
+    &__item {}
+    &__inner {
+        &:hover {
+            .service__icon {
+                background: $theme-color3;
+                color: $white-color;
+                i, svg {
+                    fill: $white-color;
+                    color: $theme-color3;
+                }
+            }
+            .service__content {
+                h5 {
+                    color: $theme-color3;
+                }
+            }
+        }
+    }
+    &__icon {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        margin: 0 auto 30px;
+        border: 2px solid $theme-color3;
+        color: $theme-color3;
+        @extend %text-center;
+        @include font-size(24px);
+        @include add-prefix(border-radius, (100%));
+        @include add-prefix(transition, (all .3s ease));
+        svg, i {
+            width: 30px;
+            @include font-size(24px);
+            fill: $theme-color3;
+            color: $theme-color3;
+        }
+    }
+    &__content {
+        h5 {
+            @extend %text-uppercase;
+            @include font-size(20px);
+        }
+        p {
+            @extend %mb-30;
+        }
+        .default {}
+    }
+}

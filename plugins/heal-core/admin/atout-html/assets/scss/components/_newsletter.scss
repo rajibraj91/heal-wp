@@ -1,0 +1,136 @@
+.newsletter {
+  &--lowerd {
+    @extend %p-rel;
+    margin-bottom: -150px;
+    z-index: 1;
+  }
+
+  &__wrapper {
+    @extend %p-40;
+    background-color: $section-bg-color;
+    border-radius: .75rem;
+
+    @include breakpoint(lg) {
+      padding-inline: 60px;
+      padding-block-start: 60px;
+      padding-block-end: 150px;
+    }
+  }
+}
+
+
+
+.newsletter-info {
+  flex: 1;
+
+  .newsletter-title {
+    font-size: 38px;
+    font-weight: 700;
+    // color: $primary-blue;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+  }
+
+  .newsletter-subtitle {
+    font-size: 18px;
+    // color: $text-light;
+    margin: 0;
+  }
+}
+
+
+.newsletter-form {
+  flex: 1;
+  max-width: 450px;
+  
+  label {
+    display: block;
+    font-size: 16px;
+    // color: $text-dark;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 16px;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    
+    &::placeholder {
+      color: #9ca3af;
+    }
+    
+    &:focus {
+      outline: none;
+      // border-color: $primary-blue;
+      // box-shadow: 0 0 0 3px rgba($primary-blue, 0.2);
+    }
+  }
+  .submit-btn {
+    padding: 19px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: $theme-color;
+    border: none;
+    border-radius: 12px 12px 12px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    max-width: 248px;
+    
+    &:hover {
+      background-color: darken($theme-color, 10%);
+    }
+
+  }
+}
+
+
+// shape
+
+.newsletter__shape-1 {
+  top: 50px;
+  left: 0px;
+  @include breakpoint (lg) {
+    top: 180px;
+    left: 0px;
+  }
+  @include breakpoint (xxl) {
+    top: 202px;
+    left: 31%;
+  }
+  @include breakpoint (xxxl) {
+    top: 205px;
+    left: 33%;
+  }
+}
+
+
+
+
+.form-control:not(textarea) {
+  height: 52px;
+}
+
+.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-control, .input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-select, .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: calc(var(--bs-border-width) * -1);
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}

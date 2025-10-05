@@ -1,0 +1,56 @@
+.counter {
+  padding-block: 82px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: $theme-color;
+
+  .section-header {
+    max-width: 50ch;
+    text-align: center;
+    margin-inline: auto;
+
+    h3 {
+      color: $white-color;
+    }
+
+    p {
+      color: $white-color;
+      padding-block: 7px;
+
+      @include breakpoint (lg) {
+        padding-block: 23px;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__item {
+    border-radius: 16px;
+    padding-inline: 28px;
+    padding-block: 30px;
+    background-color: #fff;
+    background-color: $white-color;
+
+    .counter__content {
+      display: grid;
+      place-items: center;
+    }
+
+
+    h4 {
+      padding-block: 6px;
+      font-weight: 700;
+      font-size: 36px;
+      color: $theme-color;
+    }
+
+    p {
+      font-weight: 600;
+      color: $black-color;
+    }
+  }
+}

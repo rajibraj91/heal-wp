@@ -1,0 +1,120 @@
+.social-section {
+    background: #1d1d1d;
+    @include breakpoint(max-sm) {
+        padding: 50px 0;
+    }
+}
+.social {
+    ul {
+        @extend %flex;
+        @extend %justify-center;
+    }
+    &__list {
+        &:last-child {
+            .social__name {
+                @include breakpoint(sm) {
+                    border-right: none;
+                }
+            }
+        }
+    }
+    &__name {
+        @extend %d-inline-block;
+        margin: 5px;
+        @include breakpoint(sm) {
+            margin: 0;
+            padding: 20px 25px;
+            border-right: 1px solid rgba(var(--mrs-white), 0.1);
+        }
+        i, svg {}
+        span {
+            color: $white-color;
+            @extend %d-inline-block;
+            @extend %text-capitalize;
+            @include breakpoint(max-lg) {
+                display: none;
+            }
+        }
+    }
+    &__icon {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        background: var(--mrs-theme);
+        @extend %mr-10;
+        @extend %text-center;
+        @include font-size(18px);
+        @extend %d-inline-block;
+        @include add-prefix(border-radius, (100%));
+        @include breakpoint(max-lg) {
+            display: block !important;
+            margin-right: 0;
+        }
+    }
+    &-facebook {
+        .social__icon {
+            background: $facebook;
+        }
+    }
+    &-linkedin {
+        .social__icon {
+            background: $linkedin;
+        }
+    }
+    &-pinterest {
+        .social__icon {
+            background: $pinterest;
+        }
+    }
+    &-twitter {
+        .social__icon {
+            background: $twitter;
+        }
+    }
+    &-google {
+        .social__icon {
+            background: $google;
+        }
+    }
+    &-youtube {
+        .social__icon {
+            background: $youtube;
+        }
+    }
+    &-instagram {
+        .social__icon {
+            background: $instagram;
+        }
+    }
+    &-tumblr {
+        .social__icon {
+            background: $tumblr;
+        }
+    }
+    &-behance {
+        .social__icon {
+            background: $behance;
+        }
+    }
+    &-tiktok {
+        .social__icon {
+            background: var(--mrs-black);
+        }
+    }
+    // &-google {
+    //     .social__icon {
+    //         background: $google;
+    //     }
+    // }
+    // &-google {
+    //     .social__icon {
+    //         background: $google;
+    //     }
+    // }
+    // &-google {
+    //     .social__icon {
+    //         background: $google;
+    //     }
+    // }
+
+}

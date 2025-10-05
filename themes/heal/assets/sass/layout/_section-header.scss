@@ -1,0 +1,62 @@
+.section-header {
+    @extend %mb-30;
+    &.style-2 {
+        @extend %flex;
+        @extend %align-items-center;
+        h2 {
+            @extend %text-uppercase;
+            @include breakpoint(xl) {
+                display: inline-block;
+            }
+        }
+        p {
+            max-width: 650px;
+            @extend %pl-40;
+            @extend %d-inline-block;
+            @extend %mb-0;
+            @extend %p-rel;
+            @extend %text-capitalize;
+            @include breakpoint(lg) {
+                margin-left: 40px;
+            }
+            &::before {
+                @extend %p-abs;
+                width: 20px;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: $theme-color;
+            }
+        }
+    }
+    &.style-3 {
+        @extend %text-center;
+        margin-bottom: 50px;
+        h4 {
+            @extend %text-uppercase;
+            @extend %p-rel;
+            @include font-size(24px);
+            color: $white-color;
+            &::after {
+                @extend %pos-center;
+                height: 4px;
+                width: 50px;
+                top: auto;
+                bottom: -20px !important;
+                background: $theme-color;
+            }
+        }
+    }
+    &.style-4 {
+        margin-bottom: 50px;
+        h3 {
+            @extend %text-uppercase;
+            @include font-size(32px);
+        }
+        p {
+            @include breakpoint(lg) {
+                max-width: 500px;
+            }
+        }
+    }
+}

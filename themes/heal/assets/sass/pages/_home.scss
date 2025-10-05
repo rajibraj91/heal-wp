@@ -1,0 +1,53 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+.home-2, .home-inner {
+    .default-btn {
+        background: $theme-color2;
+        &:hover {
+            color: $theme-color2;
+        }
+    }
+    .preloader, .section-header.style-3 h4::after, .donaterange__bar, .section-header.style-2 p::before, .gallery__icon:hover, .event_navi .event__next:hover, .event_navi .event__prev:hover, .navbar-toggler--icon, .navbar-toggler--icon:after, .navbar-toggler--icon:before, .default-btn.move-bottom:before, .scrollToTop .pluse_1, .scrollToTop .pluse_2, .contact__info ul li:hover .contact__info-left, .menu ul li ul li a:hover, .menu ul li ul li a.active {
+        background: $theme-color2;
+    }
+    .menu ul li a:hover, .donaterange h3 span, .gallery__filter ul li.active, .gallery__content h5:hover, .event__list ul li i, .event__list ul li svg, .event__inner:hover .event__list h5, .event__inner:hover .event__author .name h6, a:hover, .footer__social ul li a:hover, .footer__post ul li:hover .footer__postcontent h6, .footer__postcontent p i, .footer__postcontent p svg, .footer__info ul li i, .footer__info ul li svg, .about__inner:hover .about__content h5, .blog__inner:hover .blog__content h5, .contact__info-left, form button.default-btn, .menu ul li a:hover, .menu ul li a.active {
+        color: $theme-color2;
+    }
+    .gallery__icon:hover, .event-section .event-icon, .event__list, .default-btn.move-bottom, .contact__info-left, form button.default-btn, form input:focus, form textarea:focus {
+        border-color: $theme-color2;
+    }
+    .scrollToTop .pluse_1::after, .scrollToTop .pluse_1::before, .scrollToTop .pluse_2::after, .scrollToTop .pluse_2::before {
+        background: rgba(var(--mrs-theme), 0.3);
+    }
+    form button.default-btn::before {
+        background: $theme-color2 !important;
+    }
+    .menu ul li ul li a:hover, .menu ul li ul li a.active {
+        color: $white-color;
+    }
+}
+
+.home-3 {
+    .default-btn {
+        background: $theme-color3;
+        &:hover {
+            color: $theme-color3;
+        }
+    }
+    .scrollToTop .pluse_1::after, .scrollToTop .pluse_1::before, .scrollToTop .pluse_2::after, .scrollToTop .pluse_2::before {
+        background: rgba(var(--mrs-theme), 0.3);
+    }
+    .preloader, .section-header.style-3 h4::after, .donaterange__bar, .section-header.style-2 p::before, .gallery__icon:hover, .event_navi .event__next:hover, .event_navi .event__prev:hover, .navbar-toggler--icon, .navbar-toggler--icon:after, .navbar-toggler--icon:before, .default-btn.move-bottom:before, .volunteer__content>span::after, .testimonial__content h5::after, .blog-style2 .blog__icon, .menu ul li ul li a:hover, .menu ul li ul li a.active, .scrollToTop .pluse_1, .scrollToTop .pluse_2 {
+        background: $theme-color3;
+    }
+    .menu ul li a:hover, .donaterange h3 span, .gallery__filter ul li.active, .gallery__content h5:hover, .event__list ul li i, .event__list ul li svg, .event__inner:hover .event__list h5, .event__inner:hover .event__author .name h6, a:hover, .footer__social ul li a:hover, .footer__post ul li:hover .footer__postcontent h6, .footer__postcontent p i, .footer__postcontent p svg, .footer__info ul li i, .footer__info ul li svg, .about__inner:hover .about__content h5, .blog__inner:hover .blog__content h5, .volunteer__icon, .volunteer__inner:hover .volunteer__content h5, .menu ul li a:hover, .menu ul li a.active {
+        color: $theme-color3;
+    }
+    .gallery__icon:hover, .event-section .event-icon, .event__list, .default-btn.move-bottom, .volunteer__icon, .volunteer__inner:hover {
+        border-color: $theme-color3;
+    }
+    .menu ul li ul li a:hover, .menu ul li ul li a.active {
+        color: $white-color;
+    }
+}

@@ -1,0 +1,22 @@
+/* ==================== *** Info Section Start Here *** ==================== */
+.info {
+  padding-block: 56px;
+  background-color: $theme-color;
+
+  &__content {
+    text-align: center;
+    color: $white-color;
+
+    @media #{$xs} {
+      padding-block-end: 20px;
+    }
+
+    h5 {
+      font-weight: 700;
+      color: $white-color;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/* ==================== *** Info Section End Here *** ==================== */

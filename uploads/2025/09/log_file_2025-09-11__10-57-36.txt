@@ -1,0 +1,83 @@
+
+---Downloaded files---
+The import files for: Charity Demo 2 were successfully downloaded!
+Initial max execution time = 1200
+Files info:
+Site URL = http://test-heal.local
+Data file = H:\Local\test-heal\app\public\wp-content\plugins\heal-core/demo-import/demo-data/charity/demo-02/content.xml
+Widget file = H:\Local\test-heal\app\public\wp-content\plugins\heal-core/demo-import/demo-data/charity/demo-02/widgets.wie
+Customizer file = H:\Local\test-heal\app\public\wp-content\plugins\heal-core/demo-import/demo-data/charity/demo-02/customize.dat
+Redux files:
+not defined!
+
+---ocdi/before_content_import---
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Sidebar : 
+
+Heal Post Search - No Title - Imported
+Heal: Category - Blog Categories - Imported
+Heal: Sidebar Recent Posts - Recent Posts - Imported
+Heal: Sidebar Gallery - No Title - Imported
+Heal: Tags - Tags - Imported
+
+Event Sidebar : 
+
+Heal Post Search - No Title - Imported
+Heal: Category - Categories - Imported
+Heal: Sidebar Recent Posts - Recent Posts - Imported
+Heal: Sidebar Gallery - No Title - Imported
+Heal: Tags - Tags - Imported
+
+Footer Column 1 : 
+
+Heal: Footer About Us - No Title - Imported
+
+Footer Column 2 : 
+
+Heal: Footer Recent Posts - Recent Posts - Imported
+
+Footer Column 3 : 
+
+Heal: Footer Gallery - No Title - Imported
+
+Footer Column 4 : 
+
+Heal: Footer Contact - No Title - Imported
+
+
+
+---Importing customizer settings---
+Error: The customizer import file is not in a correct format. Please make sure to use the correct customizer import file.
+
+---ocdi/after_import---
+

@@ -1,0 +1,196 @@
+.banner-bg-1 {
+    background: url("../../assets/images/banner/bg/02.jpg") rgba($title-color, $alpha: .7);
+}
+.banner-bg-2 {
+    background: url("../../assets/images/banner/bg/01.jpg") rgba($title-color, $alpha: .7);
+}
+.banner-bg-3 {
+    background: url("../../assets/images/banner/bg/03.jpg") rgba($title-color, $alpha: .7);
+}
+.banner-bg-4 {
+    background: url("../../assets/images/banner/home-3/01.jpg") rgba($title-color, $alpha: .7);
+}
+.banner-bg-5 {
+    background: url("../../assets/images/banner/home-3/02.jpg") rgba($title-color, $alpha: .7);
+}
+.banner-bg-6 {
+    background: url("../../assets/images/banner/home-3/03.jpg") rgba($title-color, $alpha: .7);
+}
+
+.banner__section {
+    &.home-2 {
+        background-image: linear-gradient(to top, #edf6fb, #e5f2f9, #deeef8, #d6ebf6, #cee7f4, #c8e4f3, #c3e2f1, #bddff0, #b8ddef, #b3daed, #aed8ec, #a9d5eb);
+        .banner {
+            &__content {
+                padding-top: 115px;
+                padding-bottom: 15px;
+                @extend %text-center;
+                h2 {
+                    @include font-size(66px);
+                    color: $title-color;
+                    @extend %mb-0;
+                }
+                h5 {
+                    @include font-size(22px);
+                    @extend %text-bold;
+                    @extend %text-uppercase;
+                }
+                h2, h5, .default-btn {
+                    @include add-prefix(transform, (translateY(0)));
+                }
+                .default-btn {
+                    @extend %mt-30;
+                }
+            }
+            // &__thumb {
+            //     @extend %p-rel;
+            //     img {}
+            //     ul {
+            //         li {
+            //             @extend %p-abs;
+            //         }
+            //     }
+            // }
+        }
+        .banner__thumb {
+            @extend %p-rel;
+            ul {
+                li {
+                    @extend %p-abs;
+                    bottom: 50px;
+                    animation: run_animation 15s linear infinite forwards;
+                    @include breakpoint(max-sm) {
+                        display: none;
+                    }
+                    &:nth-child(2) {
+                        animation: run_animation 10s linear infinite forwards;
+                        bottom: 30px;
+                    }
+                    &:nth-child(3) {
+                        animation: run_animation 30s linear infinite forwards;
+                        bottom: 10px;
+                        @include breakpoint(max-sm) {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+.banner {
+    &__slider {}
+    &__padding {
+        padding: 242px 0;
+        background-blend-mode: overlay;
+        &.swiper-slide-active {
+            .banner__content {
+                h2 {
+                    @include add-prefix(transform, (translateY(0px)));
+                }
+                h3 {
+                    @include add-prefix(transform, (translateY(0px)));
+                }
+                h4 {
+                    @include add-prefix(transform, (translateY(0px)));
+                }
+                ul {
+                    @include add-prefix(transform, (translateY(0px)));
+                }
+                p {
+                    @include add-prefix(transform, (translateY(0px)));
+                }
+                .default-btn {
+                    @include add-prefix(transform, (translateY(0px)));
+                }
+            }
+        }
+    }
+    &__item {}
+    &__inner {}
+    &__content {
+        h2 {
+            color: $white-color;
+            @extend %text-uppercase;
+            @include font-size(82px);
+            @include add-prefix(transform, (translateY(200px)));
+            @include add-prefix(transition, (all .5s ease));
+        }
+        h3 {
+            color: $title-color;
+            background: $white-color;
+            @extend %px-10;
+            @extend %text-uppercase;
+            @include font-size(42px);
+            @extend %d-inline-block;
+            @extend %mb-20;
+            @include add-prefix(transform, (translateY(200px)));
+            @include add-prefix(transition, (all .6s ease));
+        }
+        ul {
+            @extend %mb-30;
+            @include add-prefix(transform, (translateY(200px)));
+            @include add-prefix(transition, (all .7s ease));
+            li {
+                color: $white-color;
+                @extend %py-5;
+                @extend %px-15;
+                @extend %p-rel;
+                &::before {
+                    @extend %p-abs;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 100%;
+                    background: $white-color;
+                    top: 50%;
+                    left: 0;
+                    @include add-prefix(transform, (translateY(-50%)));
+                }
+            }
+        }
+        p {
+            color: $white-color;
+            margin-bottom: 44px;
+            @include add-prefix(transform, (translateY(200px)));
+            @include add-prefix(transition, (all .8s ease));
+        }
+        .default-btn {
+            @include add-prefix(transform, (translateY(200px)));
+            @include add-prefix(transition, (all .9s ease));
+        }
+    }
+    &__pagination {
+        @extend %p-abs;
+        @extend %text-center;
+        z-index: 1;
+        bottom: 60px !important;
+        span {
+            background: $white-color;
+        }
+    }
+    &-style2 {
+        .banner {
+            &__content {
+                h4 {
+                    color: $white-color;
+                    @extend %text-regular;
+                    @extend %text-uppercase;
+                    @include font-size(32px);
+                    @include add-prefix(transform, (translateY(200px)));
+                    @include add-prefix(transition, (all .6s ease));
+                    mark {
+                        background: rgba(0, 0, 0, .2);
+                        color: $white-color;
+                        @extend %px-20;
+                    }
+                }
+                h2 {
+                    @include font-size(60px);
+                }
+                p {}
+                .default-btn {}
+            }
+        }
+    }
+}

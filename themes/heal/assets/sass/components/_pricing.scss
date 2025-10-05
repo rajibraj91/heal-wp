@@ -1,0 +1,99 @@
+.pricing-section {
+    .pricing-icon {
+        border-color: $theme-color3;
+    }
+    .section-header {
+        h3 {
+            @include font-size(20px);
+        }
+    }
+}
+.pricing {
+    &__item {}
+    &__inner {
+        @include add-prefix(transition, (all .3s ease));
+        &:hover, &.active {
+            // @include add-prefix(transform, (scale(1.05)));
+            .pricing__head {
+                background: $theme-color3;
+                h5 {
+                    color: $white-color;
+                    &::after {
+                        background: $white-color;
+                    }
+                }
+                h6 {
+                    color: $white-color;
+                }
+            }
+            .pricing__content {
+                ul {
+                    li {
+                        background: #f2f2f2;
+                        &:nth-child(odd) {
+                            background: #e6e6e6;
+                        }
+                    }
+                }
+            }
+            .pricing__footer {
+                background: #e6e6e6;
+            }
+        }
+    }
+    &__content {
+        background: $white-color;
+    }
+    &__head {
+        @extend %py-30;
+        @include add-prefix(transition, (all .3s ease));
+        h5 {
+            @include font-size(22px);
+            @extend %d-inline-block;
+            @extend %p-rel;
+            @extend %mb-30;
+            @extend %text-uppercase;
+            &::after {
+                @extend %p-abs;
+                width: 50px;
+                height: 2px;
+                left: 50%;
+                bottom: -15px;
+                background: $theme-color3;
+                @include add-prefix(transform, (translateX(-50%)));
+                @include add-prefix(transition, (all .3s ease));
+            }
+        }
+        h6 {
+            @include font-size(22px);
+            @extend %mb-0;
+        }
+    }
+    &__body {
+        ul {
+            li {
+                @extend %py-15;
+                @include add-prefix(transition, (all .3s ease));
+                &:nth-child(odd) {
+                    background: #fafafa;
+                }
+            }
+        }
+    }
+    &__footer {
+        @extend %py-30;
+        background: #fafafa;
+        .default-btn {
+            border: 2px solid $theme-color3;
+            background: transparent !important;
+            color: $theme-color3;
+            line-height: 35px;
+            @include font-size(13px);
+            &:hover {
+                span {
+                    color: $white-color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+.partner-section {
+    background: url(../../assets/images/counter/bg-counter.jpg);
+}
+.partner {
+    &__thumb {
+        @extend %text-center;
+    }
+}

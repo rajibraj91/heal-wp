@@ -1,0 +1,18 @@
+.brand {
+  padding-block-start: 60px;
+
+  @include breakpoint (lg) {
+    padding-block-start: 100px;
+  }
+
+  &__wrapper {
+    padding-bottom: 50px;
+    padding-block-start: 20px;
+    border-bottom: 1px solid rgba(18, 20, 29, 0.2);
+
+    @include breakpoint (lg) {
+      padding-bottom: 74px;
+      padding-block-start: 42px;
+    }
+  }
+}

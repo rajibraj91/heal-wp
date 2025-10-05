@@ -1,0 +1,216 @@
+//=============================
+// Main Container
+//=============================
+.contact__form{
+  background-color: #ffffff;
+
+
+
+  .contact-heading {
+    font-size: 64px;
+    font-family: 'Quicksand';
+    color: #1e3a8a;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  p.subtitle {
+    font-size: 16px;
+    color: #4b5563;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 28px;
+    }
+  }
+}
+
+
+.tab-button-section{
+  text-align: center;
+}
+//=============================
+// Tab Buttons
+//=============================
+.tab-buttons {
+  display: inline-flex;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #d1d5db;
+  margin-bottom: 40px;
+
+  .tab-btn {
+    padding: 24px 40px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background-color: #ffffff;
+    color: #1e3a8a;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:first-child {
+      border-right: 1px solid #d1d5db;
+    }
+
+    &.active {
+      background-color: #dbeafe;
+      color: #1e3a8a;
+    }
+
+    &:not(.active):hover {
+      background-color: #f3f4f6;
+    }
+  }
+}
+
+//=============================
+// Tab Content
+//=============================
+.tab-content {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+//=============================
+// Form Container (Blue Box)
+//=============================
+.form-container {
+  background-color: #1e40af;
+  color: #ffffff;
+  padding: 50px 40px 40px;
+  border-radius: 12px;
+  position: relative;
+ 
+  // Notch Triangle
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 76%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 65px solid transparent;
+    border-right: 65px solid transparent;
+    border-top: 65px solid #ffffff;
+  }
+
+  h4 {
+    font-size: $fs-xl-max;
+    margin-top: 0;
+    color: white;
+    text-align: left;
+    margin-bottom: 10px;
+    font-weight: 700;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+  }
+
+  p.form-description {
+   font-size: 14px;
+    text-align: left;
+    color: #dbeafe;
+    max-width: 56%;
+    margin: 10px 0px;
+    line-height: 1.8;
+  }
+  .form-inner-heading{
+    margin: 60px 0px ;
+  }
+  //=============================
+  // Form Grid
+  //=============================
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: left;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  //=============================
+  // Form Group
+  //=============================
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    &.full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #dbeafe;
+    }
+
+    input,
+    textarea {
+      background-color: #3b82f6;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 15px;
+      font-size: 16px;
+      color: #ffffff;
+
+      &::placeholder {
+        color: #bfdbfe;
+      }
+
+      &:focus {
+        outline: 2px solid #60a5fa;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+  }
+
+  //=============================
+  // Submit Button
+  //=============================
+  .submit-btn {
+    background-color: #f97316;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #ea580c;
+    }
+  }
+}
+
+//=============================
+// Partner Placeholder Content
+//=============================
+.partner-container {
+  background-color: #1e40af;
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+}

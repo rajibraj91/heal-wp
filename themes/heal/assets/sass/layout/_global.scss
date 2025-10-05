@@ -1,0 +1,343 @@
+.bg-img {
+    @include background-cover;
+}
+.bg-ash {
+    background: $ash-color !important;
+}
+
+
+
+.event-icon, .pricing-icon {
+    width: 125px;
+    height: 125px;
+    line-height: 125px;
+    color: $title-color;
+    border: 2px solid $theme-color;
+    @extend %text-center;
+    @extend %mb-15;
+    @include font-size(30px);
+    @include add-prefix(border-radius, (100%));
+    svg, i {
+        width: 30px;
+        @include font-size(24px);
+        fill: $theme-color3;
+    }
+}
+
+
+// maps-section
+.maps-section {
+    height: 300px;
+    @include breakpoint(sm) {
+        height: 500px;
+    }
+    iframe {
+        @extend %w-100;
+        @extend %h-100;
+        @extend %mb-0;
+    }
+}
+
+// .angle {
+//     position: absolute;
+//     width: 100%;
+//     left: 0;
+//     height: 151px;
+//     overflow: hidden;
+//     z-index: 2;
+//     &::before {
+//         content: "";
+//         width: 100%;
+//         height: 150px;
+//         background: #ffffff;
+//         position: absolute;
+//         left: 0;
+//         -webkit-transform: rotate(-3deg) skew(-3deg) scale(1.1,1);
+//         -mox-transform: rotate(-3deg) skew(-3deg) scale(1.1,1);
+//         -ms-transform: rotate(-3deg) skew(-3deg) scale(1.1,1);
+//         -o-transform: rotate(-3deg) skew(-3deg) scale(1.1,1);
+//         transform: rotate(-3deg) skew(-3deg) scale(1.1,1);
+//     }
+//     &__top {
+//         &::before {
+//             top: 75px;
+//         }
+//     }
+//     &__bottom {
+//         &::before {
+//             bottom: 75px;
+//         }
+//     }
+// }
+
+
+/* 2.1 - Section Angle
+---------------------------------------------*/
+.angular {
+	position: relative;
+} 
+.white-bg.angular {
+	margin-bottom: 170px;
+}
+.angular .top-angle,
+.angular .bottom-angle {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	height: 100px;
+	overflow: hidden;
+	z-index: 2;
+    @include breakpoint(sm) {
+	    height: 150px;
+    }
+}
+.angular .top-angle {
+	top: -70px;
+    @include breakpoint(sm) {
+	    top: -110px;
+    }
+}
+.angular .bottom-angle {
+    bottom: -80px;
+    @include breakpoint(sm) {
+	    bottom: -110px;
+    }
+}
+.angular .top-angle:before,
+.angular .bottom-angle:before {
+	content: "";
+	width: 100%;
+	height: 100px;
+	background: #ffffff;
+	position: absolute;
+	left: 0;
+	-webkit-transform: rotate(-2deg) skew(-3deg) scale(1.1,1);
+	-mox-transform: rotate(-2deg) skew(-3deg) scale(1.1,1);
+	-ms-transform: rotate(-2deg) skew(-3deg) scale(1.1,1);
+	-o-transform: rotate(-2deg) skew(-3deg) scale(1.1,1);
+	transform: rotate(-2deg) skew(-3deg) scale(1.1,1);
+    
+    @include breakpoint(sm) {
+	    height: 150px;
+    }
+}
+.angular .top-angle:before {
+	top: 40px;
+}
+.gray-bg.angular .top-angle:before {
+	background: #ecf0f1;
+}
+.angular .bottom-angle:before {
+	bottom: 70px;
+}
+.gray-bg.angular .bottom-angle:before {
+	background: #ecf0f1;
+}
+
+/* 2.1 - Section Angle End
+---------------------------------------------*/
+
+
+
+
+
+
+.play-btn {
+	@extend %p-abs;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    @extend %d-inline-block;
+    background: $white-color;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    @extend %text-center;
+    @extend %d-inline-block;
+    z-index: 1;
+    @extend %p-rel;
+    @include font-size(18px);
+    color: $theme-color3;
+    @include breakpoint(md) {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 24px;
+
+    }
+    i, svg {
+        @extend %z-index;
+    }
+	span {
+		width: 100%;
+
+		&:before {
+			background: $white-color;
+
+			@include breakpoint(md) {
+				width: 80px;
+				height: 80px;
+			}
+		}
+	}
+}
+
+
+.scrollToTop {
+    position: fixed;
+    bottom: -30%;
+    right: 5%;
+    z-index: 9;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: $white-color;
+    animation: lab_top_up 5s linear infinite;
+    @include font-size(18px);
+    @include add-prefix(border-radius, (100%));
+    @include add-prefix(transition, (all .3s ease));
+    i,svg {
+        @extend %z-index;
+        color: $white-color;
+    }
+    &:hover {
+        background: $theme-color3;
+    }
+    .pluse_1, .pluse_2 {
+        background: $theme-color;
+        &::after, &::before {
+            background: rgba(var(--mrs-theme), 0.3);
+        }
+    }
+}
+
+.pagination {
+    .page-item {
+        &:first-child, &:last-child {
+            .page-link {
+                @include add-prefix(border-radius, (0));
+            }
+        }
+        .page-link {
+            margin: 5px;
+            outline: none;
+            box-shadow: none;
+            color: $title-color;
+            &:hover {
+                background: $theme-color2;
+                color: $white-color;
+                border-color: $theme-color2;
+            }
+        }
+    }
+}
+
+
+.pluse_1,
+.pluse_2 {
+    @extend %p-abs;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: rgba(var(--mrs-white), 0.10);
+
+    &::after,
+    &::before {
+        @extend %p-abs;
+        background: $white-color;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        margin-left: -20px;
+        margin-top: -20px;
+        z-index: 0;
+    }
+
+    &::after {
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        margin-left: -15px;
+        margin-top: -15px;
+    }
+
+    &:before {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.pluse_1 {
+    -webkit-animation: pluse_animate 3s infinite linear;
+    animation: pluse_animate 3s infinite linear;
+}
+
+.pluse_2 {
+    &::before {
+        -webkit-animation: pluse_animate 3s infinite linear;
+        animation: pluse_animate 3s infinite linear;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+        margin-left: 0;
+        margin-top: 0;
+    }
+}
+
+@keyframes pluse_animate {
+    0% {
+        opacity: 1;
+        -webkit-transform: translate(-50%, -50%) scale(0.3);
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate(-50%, -50%) scale(2);
+        transform: translate(-50%, -50%) scale(2);
+    }
+}
+
+.pattern-1::after {
+  position: absolute;
+  content: "";
+  background-image: url(../images/shape/pattern-1.png);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.pattern-2::after {
+  background-image: url(../images/shape/pattern-2.png);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: "";
+  opacity: 0.3;
+}
+
+.pattern-3::after {
+  background-image: url(../images/shape/pattern-3.png);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: "";
+  opacity: 0.2;
+}

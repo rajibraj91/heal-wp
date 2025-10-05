@@ -1,0 +1,142 @@
+.about {
+  &__content {
+      h2 {
+        color: $title-color-2;
+        padding-block-end: 20px;
+      }
+      p {
+        font-size: 18px;
+        @include breakpoint (xl) {
+          font-size: 22px;
+        }
+      }
+  }
+  &__card {
+    &-price {
+      background-color: rgba(8, 58, 181, 1);
+      border-radius: 16px 0px 0px 16px;
+      padding-block-start: 10px;
+      padding-inline: 16px;
+      @include breakpoint (sm) {
+        padding-block-start: 17px;
+        padding-inline: 20px;
+      }
+      .starting-from {
+        font-weight: 600;
+        font-size: 10px;
+        color: $white-color;
+        margin-bottom: 0;
+        line-height: 1;
+        padding-block-end: 4px;
+        @include breakpoint (sm) {
+          font-size: $fs-small;
+        }
+      }
+      .price {
+        font-size: 31px;
+        color: $white-color;
+        position: relative;
+        font-weight: 700;
+        line-height: 1;
+        @include breakpoint (sm) {
+          font-size: 50px;
+        }
+        @include breakpoint (md) {
+          font-size: 88px;
+        }
+        @include breakpoint (lg) {
+          font-size: 50px;
+        }
+        @include breakpoint (xl) {
+          font-size: 88px;
+        }
+        .mz {
+          font-size: 10px;
+          font-weight: 600;
+          position: absolute;
+          line-height: 1;
+          top: 5px;
+          right: -2px;
+          @include breakpoint (sm) {
+            font-size: 18px;
+            right: -3px;
+          }
+          @include breakpoint (lg) {
+            font-size: 18px;
+            right: -4px;
+          }
+          @include breakpoint (xl) {
+            font-size: 24px;
+            right: -13px;
+          }
+          @include breakpoint (xxl) {
+            right: 10px;
+          }
+        }
+      }
+      .per-month {
+        color: $white-color;
+        padding-inline-start: 0px;
+        font-size: 10px !important;
+        @include breakpoint (sm) {
+          padding-inline-start: 40px;
+          font-size: 14px !important;
+        }
+        @include breakpoint (md) {
+          padding-inline-start: 100px;
+        }
+        @include breakpoint (lg) {
+          padding-inline-start: 40px;
+        }
+        @include breakpoint (xl) {
+          padding-inline-start: 60px;
+        }
+        @include breakpoint (xxl) {
+          padding-inline-start: 115px;
+        }
+      }
+    }
+    &-content {
+      background-color: #fff;
+      padding-block-start: 7px;
+      padding-block-end: 10px;
+      padding-inline: 12px 24px;
+      @include breakpoint (sm) {
+        padding-block-start: 17px;
+        padding-block-end: 21px;
+        padding-inline: 24px 39px;
+      }
+
+      @include breakpoint (md) {
+        padding-block-end: 43px;
+        padding-inline: 24px 58px;
+        padding-block-start: 31px;
+      }
+      @include breakpoint (lg) {
+        padding-block-end: 21px;
+        padding-inline: 24px 39px;
+      }
+      @include breakpoint (xl) {
+        padding-block-start: 32px;
+        padding-block-end: 26px;
+      }
+      h5 {
+        font-size: 16px;
+        @include breakpoint (sm) {
+          font-size: 20px;
+        }
+        @include breakpoint (xl) {
+          font-size: 28px;
+        }
+      }
+      span {
+        font-weight: 700;
+        font-size: 14px;
+        color: $theme-color;
+        @include breakpoint (sm) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
