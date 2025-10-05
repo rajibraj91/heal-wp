@@ -212,6 +212,7 @@ if ( ! class_exists( 'Heal_Elementor_Widget_Init' ) ) {
 				'religion-cause',
 				'religion-faith',
 				'religion-quote',
+				'religion-event',
 
 
 				// Event Addon

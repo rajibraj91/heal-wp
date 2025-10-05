@@ -43,7 +43,7 @@ if ( ! class_exists( 'Heal_Custom_Post_Type' ) ) {
                     'label'               => esc_html__( $label, 'heal-core' ),
                     'description'         => esc_html__( $label, 'heal-core' ),
                     'labels'              => $this->get_labels( $label ),
-                    'supports'            => [ 'title', 'editor', 'excerpt', 'thumbnail', 'comments' ],
+                    'supports'            => [ 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'page-attributes' ],
                     'hierarchical'        => false,
                     'public'              => true,
                     'publicly_queryable'  => true,

@@ -141,17 +141,6 @@ class Theme_Hafsa_Quote extends Widget_Base {
         );
 
         $this->add_control(
-            'slider_pagination',
-            [
-                'label'     => esc_html__( 'Pagination', 'heal-core' ),
-                'type'      => Controls_Manager::SWITCHER,
-                'default'   => 'yes',
-                'label_on'  => esc_html__( 'Yes', 'heal-core' ),
-                'label_off' => esc_html__( 'No', 'heal-core' ),
-            ]
-        );
-
-        $this->add_control(
             'slider_loop',
             [
                 'label'     => esc_html__( 'Loop', 'heal-core' ),
@@ -226,9 +215,8 @@ class Theme_Hafsa_Quote extends Widget_Base {
 
         $this->end_controls_section();
 
-        /* -----------------------------
-         * STYLE: Card/Item
-        * ----------------------------- */
+
+        //  STYLE: Quote Prophet
         $this->start_controls_section(
             'style_quote',
             [
@@ -236,27 +224,48 @@ class Theme_Hafsa_Quote extends Widget_Base {
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [ 'name' => 'qp_border', 'selector' => '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [ 'name' => 'qp_shadow', 'selector' => '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' ]
-        );
-
-        $this->add_responsive_control(
-            'qp_radius',
+        $this->add_control(
+            'qp_width',
             [
-                'label'     => __( 'Border Radius', 'heal-core' ),
+                'label'     => __( 'Width', 'heal-core' ),
                 'type'      => Controls_Manager::SLIDER,
-                'range'     => [ 'px' => [ 'min' => 0, 'max' => 40 ] ],
-                'selectors' => [ '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' => 'border-radius: {{SIZE}}{{UNIT}};' ],
+                'size_units' => [ 'px', '%' ],
+                'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 500,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' => 'width: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
-
+        $this->add_control(
+            'qp_height',
+            [
+                'label'     => __( 'height', 'heal-core' ),
+                'type'      => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 500,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->add_responsive_control(
             'qp_margin',
             [
@@ -264,19 +273,119 @@ class Theme_Hafsa_Quote extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [ 'name' => 'qp_border', 'selector' => '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' ]
+        );
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [ 'name' => 'qp_shadow', 'selector' => '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' ]
+        );
+        $this->add_responsive_control(
+            'qp_radius',
+            [
+                'label'     => __( 'Border Radius', 'heal-core' ),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [ 'px' => [ 'min' => 0, 'max' => 100 ] ],
+                'selectors' => [ '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' => 'border-radius: {{SIZE}}{{UNIT}};' ],
+            ]
+        );
+        $this->add_control(
+            'qp_color',
+            [
+                'label'     => __( 'Prophet Color', 'heal-core' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [ '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb span' => 'color: {{VALUE}};' ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [ 'name' => 'qp_typo', 'selector' => '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb span' ]
+        );
+        $this->add_control(
+            'qp_bg_color',
+            [
+                'label'     => __( 'Prophet BG Color', 'heal-core' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [ '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb' => 'background-color: {{VALUE}};' ],
+            ]
+        );
+        $this->end_controls_section();
+        // STYLE: Quote Prophet
+
+
+        //  STYLE: Quote Icon 
+        $this->start_controls_section(
+            'style_quote_icon',
+            [
+                'label' => __( 'Quote Icon', 'heal-core' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [ 'name' => 'qpi_border', 'selector' => '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb i' ]
+        );
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [ 'name' => 'qpi_shadow', 'selector' => '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb i' ]
+        );
+        $this->add_responsive_control(
+            'qpi_radius',
+            [
+                'label'     => __( 'Border Radius', 'heal-core' ),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [ 'px' => [ 'min' => 0, 'max' => 100 ] ],
+                'selectors' => [ '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb i' => 'border-radius: {{SIZE}}{{UNIT}};' ],
+            ]
+        );
+        $this->add_control(
+            'qpi_color',
+            [
+                'label'     => __( 'Icon Color', 'heal-core' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [ '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb i' => 'color: {{VALUE}};' ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [ 'name' => 'qpi_typo', 'selector' => '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb i' ]
+        );
+        $this->add_control(
+            'qpi_bg_color',
+            [
+                'label'     => __( 'Icon BG Color', 'heal-core' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [ '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb i' => 'background-color: {{VALUE}};' ],
+            ]
+        );
+        $this->add_responsive_control(
+            'qpi_padding',
+            [
+                'label'      => __( 'Padding', 'heal-core' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-thumb i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
         $this->end_controls_section();
+        // 
+
+
 
         /* -----------------------------
          * STYLE: Texts (Name/Quote/Time)
-         * ----------------------------- */
+        * ----------------------------- */
         $this->start_controls_section(
             'style_texts',
             [
-                'label' => __( 'Texts', 'heal-core' ),
+                'label' => __( 'Content', 'heal-core' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -284,9 +393,9 @@ class Theme_Hafsa_Quote extends Widget_Base {
         $this->add_control(
             'name_color',
             [
-                'label'     => __( 'Name Color', 'heal-core' ),
+                'label'     => __( 'Name Text Color', 'heal-core' ),
                 'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .testimonial__content h5, {{WRAPPER}} .testimonial__content p span' => 'color: {{VALUE}};' ],
+                'selectors' => [ '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-content blockquote footer' => 'color: {{VALUE}};' ],
             ]
         );
         $this->add_group_control(
@@ -294,113 +403,35 @@ class Theme_Hafsa_Quote extends Widget_Base {
             [ 'name' => 'name_typo', 'selector' => '{{WRAPPER}} .testimonial__content h5, {{WRAPPER}} .testimonial__content p span' ]
         );
 
+        
+        $this->add_control(
+            'text_color',
+            [
+                'label'     => __( 'Text Color', 'heal-core' ),
+                'type'      => Controls_Manager::COLOR,
+                'separator' => 'before',
+                'selectors' => [ '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-content blockquote p' => 'color: {{VALUE}};' ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [ 'name' => 'quote_text_typo', 'selector' => '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-content blockquote p' ]
+        );
+
         $this->add_control(
             'quote_color',
             [
                 'label'     => __( 'Quote Color', 'heal-core' ),
                 'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .testimonial__content p' => 'color: {{VALUE}};' ],
+                'separator' => 'before',
+                'selectors' => [ '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-content blockquote p span' => 'color: {{VALUE}};' ],
             ]
         );
         $this->add_group_control(
             Group_Control_Typography::get_type(),
-            [ 'name' => 'quote_typo', 'selector' => '{{WRAPPER}} .testimonial__content p' ]
+            [ 'name' => 'quote_typo', 'selector' => '{{WRAPPER}} .hafsa .qoute-section .qoute-container .qoute-item .lab-inner .lab-content blockquote p span' ]
         );
 
-        $this->add_control(
-            'time_color',
-            [
-                'label'     => __( 'Time Color', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .testimonial__content > span' => 'color: {{VALUE}};' ],
-                'condition' => [ 'style' => 'style2' ],
-            ]
-        );
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [ 'name' => 'time_typo', 'selector' => '{{WRAPPER}} .testimonial__content > span' ]
-        );
-
-        $this->end_controls_section();
-
-        /* -----------------------------
-         * STYLE: Avatar / Icon / Pagination
-         * ----------------------------- */
-        $this->start_controls_section(
-            'style_media',
-            [
-                'label' => __( 'Avatar / Icon / Pagination', 'heal-core' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_responsive_control(
-            'avatar_size',
-            [
-                'label'     => __( 'Avatar Size (px)', 'heal-core' ),
-                'type'      => Controls_Manager::SLIDER,
-                'range'     => [ 'px' => [ 'min' => 30, 'max' => 160 ] ],
-                'selectors' => [ '{{WRAPPER}} .testimonial__thumb img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; object-fit: cover;' ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'avatar_radius',
-            [
-                'label'     => __( 'Avatar Radius', 'heal-core' ),
-                'type'      => Controls_Manager::SLIDER,
-                'range'     => [ 'px' => [ 'min' => 0, 'max' => 100 ] ],
-                'selectors' => [ '{{WRAPPER}} .testimonial__thumb img' => 'border-radius: {{SIZE}}{{UNIT}};' ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'icon_size',
-            [
-                'label'     => __( 'Icon Size', 'heal-core' ),
-                'type'      => Controls_Manager::SLIDER,
-                'range'     => [ 'px' => [ 'min' => 12, 'max' => 120 ] ],
-                'selectors' => [ '{{WRAPPER}} .testimonial__icon i, {{WRAPPER}} .testimonial__icon svg' => 'font-size: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};' ],
-                'condition' => [ 'style' => 'style2' ],
-            ]
-        );
-
-        $this->add_control(
-            'icon_color',
-            [
-                'label'     => __( 'Icon Color', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .testimonial__icon i, .testimonial__icon svg' => 'color: {{VALUE}}; fill: {{VALUE}};' ],
-                'condition' => [ 'style' => 'style2' ],
-            ]
-        );
-        $this->add_control(
-            'icon_border_color',
-            [
-                'label'     => __( 'Icon Border Color', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .testimonial__icon' => 'border-color: {{VALUE}};' ],
-                'condition' => [ 'style' => 'style2' ],
-            ]
-        );
-
-        $this->add_control(
-            'pagination_color',
-            [
-                'label'     => __( 'Pagination Color', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .testimonial__pagination .swiper-pagination-bullet' => 'background-color: {{VALUE}};' ],
-            ]
-        );
-
-        $this->add_control(
-            'pagination_active_color',
-            [
-                'label'     => __( 'Pagination Active Color', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .testimonial__pagination .swiper-pagination-bullet-active' => 'background-color: {{VALUE}};' ],
-            ]
-        );
         $this->end_controls_section();
     }
 
@@ -412,7 +443,6 @@ class Theme_Hafsa_Quote extends Widget_Base {
 
         // Slider conf
         $loop     = ( $settings['slider_loop'] ?? 'yes' ) === 'yes';
-        // $pagination     = ( $s['slider_pagination'] ?? 'yes' ) === 'yes';
         $autoplay = ( $settings['slider_autoplay'] ?? 'yes' ) === 'yes';
         $delay    = ! empty( $settings['slider_delay'] ) ? absint( $settings['slider_delay'] ) : 5000;
         $speed    = ! empty( $settings['slider_speed'] ) ? absint( $settings['slider_speed'] ) : 600;
@@ -475,29 +505,15 @@ class Theme_Hafsa_Quote extends Widget_Base {
 
         <script>
             (function($){
-                $(function(){
-                    var root = document.getElementById('<?php echo esc_js( $wrap_id ); ?>');
-                    if (!root) return;
-                    var slider = root.querySelector('.testimonial__slider');
-                    if (!slider) return;
-
-                    if (window.Swiper) {
-                        var swiper = new Swiper(slider, {
-                            loop: <?php echo $loop ? 'true' : 'false'; ?>,
-                            speed: <?php echo (int) $speed; ?>,
-                            autoplay: <?php echo $autoplay ? '{ delay: '.(int)$delay.', disableOnInteraction: false }' : 'false'; ?>,
-                            slidesPerView: <?php echo (int) $spv_d; ?>,
-                            spaceBetween: <?php echo (int) $space_d; ?>,
-                            pagination: {
-                                el: root.querySelector('.testimonial__pagination'),
-                                clickable: true
-                            },
-                            breakpoints: {
-                                0:   { slidesPerView: <?php echo (int) $spv_m; ?>, spaceBetween: <?php echo (int) $space_m; ?> },
-                                768: { slidesPerView: <?php echo (int) $spv_t; ?>, spaceBetween: <?php echo (int) $space_t; ?> },
-                                992: { slidesPerView: <?php echo (int) $spv_d; ?>, spaceBetween: <?php echo (int) $space_d; ?> }
-                            }
-                        });
+                var swiper = new Swiper('.qoute-container', {
+                    slidesPerView: <?php echo (int) $spv_d; ?>,
+                    spaceBetween: <?php echo (int) $space_d; ?>,
+                    autoplay: <?php echo $autoplay ? '{ delay: '.(int)$delay.', disableOnInteraction: false }' : 'false'; ?>,
+                    loop: <?php echo $loop ? 'true' : 'false'; ?>,
+                    breakpoints: {
+                        0:   { slidesPerView: <?php echo (int) $spv_m; ?>, spaceBetween: <?php echo (int) $space_m; ?> },
+                        768: { slidesPerView: <?php echo (int) $spv_t; ?>, spaceBetween: <?php echo (int) $space_t; ?> },
+                        992: { slidesPerView: <?php echo (int) $spv_d; ?>, spaceBetween: <?php echo (int) $space_d; ?> }
                     }
                 });
             })(jQuery);

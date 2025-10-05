@@ -219,15 +219,15 @@
             }
         });
         //qoute slider
-        var swiper = new Swiper('.qoute-container', {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 10000,
-                disableOnInteraction: false,
-            },
-            loop: true,
-        });
+        // var swiper = new Swiper('.qoute-container', {
+        //     slidesPerView: 1,
+        //     spaceBetween: 20,
+        //     autoplay: {
+        //         delay: 10000,
+        //         disableOnInteraction: false,
+        //     },
+        //     loop: true,
+        // });
         
     });
 })(jQuery);

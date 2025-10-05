@@ -297,7 +297,9 @@ if (class_exists('CSF')) {
         'post_type' => 'event',
     ));
 
+    // Chiarity
     CSF::createSection($prefix . '_event_options', array(
+        'title'      => esc_html__( 'Chiarity Event Settings', 'heal' ),
         'fields' => array(
 		    // Event Style
             array(
@@ -474,6 +476,47 @@ if (class_exists('CSF')) {
             ),
         )
     ));
+
+    // Hafsa
+    CSF::createSection( $prefix . '_event_options', array(
+        'title'      => esc_html__( 'Hafsa Event Settings', 'heal' ),
+        'fields'     => array(
+            array(
+                'id'    => 'hafsa_event_Date',
+                'type'  => 'date',
+                'title' => esc_html__( 'Hafsa Event Date', 'heal' ),
+                'desc'  => esc_html__( 'choose your event date', 'heal' ),
+            ),
+            array(
+                'id'    => 'hafsa_event_location',
+                'type'  => 'text',
+                'title' => esc_html__( 'Hafsa Event Location', 'heal' ),
+            ),
+        ),
+    ) );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
