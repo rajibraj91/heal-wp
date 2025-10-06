@@ -100,18 +100,6 @@ class Theme_Hafsa_Service extends Widget_Base {
             ]
         );
 
-
-        // $this->add_control(
-        //     'section_description',
-        //     [
-        //         'label'       => esc_html__( 'Description', 'heal-core' ),
-        //         'type'        => Controls_Manager::TEXTAREA,
-        //         'default'     => '',
-        //         'placeholder' => esc_html__( 'Enter description', 'heal-core' ),
-        //         'label_block' => true,
-        //     ]
-        // );
-
         $this->end_controls_section();
 
         // Permalink
@@ -160,15 +148,6 @@ class Theme_Hafsa_Service extends Widget_Base {
                 'description' => esc_html__( 'How many posts to show; -1 for all (no pagination).', 'heal-core' ),
             ]
         );
-        // $this->add_control(
-        //     'offset',
-        //     [
-        //         'label'       => esc_html__( 'Offset Posts', 'heal-core' ),
-        //         'type'        => Controls_Manager::TEXT,
-        //         'default'     => '0',
-        //         'description' => esc_html__( 'Skip first N posts.', 'heal-core' ),
-        //     ]
-        // );
         $this->add_control(
             'category',
             [

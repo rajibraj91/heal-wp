@@ -1319,6 +1319,7 @@
 
         .event-top-thumb {
             width: 50%;
+            z-index: 1;
 
             @include breakpoint (max-lg) {
                 width: 100%;
@@ -1670,14 +1671,13 @@
 
     .tri-shape-2 {
         @extend %rel;
-
         @include breakpoint(xl) {
             &::before {
                 position: absolute;
                 background-image: url(../images/shape/06.png);
                 background-repeat: no-repeat;
                 background-position: bottom right;
-                z-index: -3;
+                z-index: 1;
                 height: 100%;
                 width: 100%;
                 top: 0;

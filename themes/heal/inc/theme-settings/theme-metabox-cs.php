@@ -308,9 +308,9 @@ if (class_exists('CSF')) {
                 'title'       => 'Select',
                 'placeholder' => 'Choose Your Style',
                 'options'     => array(
-                    'single'  => 'Style 1',
-                    'single2'  => 'Style 2',
-                    // 'single3'  => 'style 3',
+                    'single'  => 'Charity Demo 1',
+                    'single2'  => 'Charity Demo 2',
+                    'single3'  => 'Hafsa Demo',
                 ),
                 'default'     => 'single'
             ),
@@ -359,6 +359,7 @@ if (class_exists('CSF')) {
                 'title' => esc_html__('Event Speaker Title', 'heal'),
                 'desc'  => esc_html__('Enter the event speaker title', 'heal'),
                 'placeholder' => esc_html__('Event Speaker Title', 'heal'),
+                'dependency' => array( 'event_style', '!=', 'single3' ),
             ),
             array(
                 'id'    => 'event_speakers',
@@ -464,36 +465,33 @@ if (class_exists('CSF')) {
                 'placeholder' => esc_html__('https://www.google.com/maps/embed?pb=...', 'heal'),
                 'dependency' => array( 'event_style', '==', 'single2' ),
             ),
-
-            // Style 3
-            array(
-                'id'    => 'event_donate_percent',
-                'type'  => 'text',
-                'title' => esc_html__('Event Donate %', 'heal'),
-                'desc'  => esc_html__('Enter the event donate %', 'heal'),
-                'placeholder' => esc_html__('Event Donate %', 'heal'),
-                'dependency' => array( 'event_style', '==', 'single3' ),
-            ),
         )
     ));
 
     // Hafsa
-    CSF::createSection( $prefix . '_event_options', array(
-        'title'      => esc_html__( 'Hafsa Event Settings', 'heal' ),
-        'fields'     => array(
-            array(
-                'id'    => 'hafsa_event_Date',
-                'type'  => 'date',
-                'title' => esc_html__( 'Hafsa Event Date', 'heal' ),
-                'desc'  => esc_html__( 'choose your event date', 'heal' ),
-            ),
-            array(
-                'id'    => 'hafsa_event_location',
-                'type'  => 'text',
-                'title' => esc_html__( 'Hafsa Event Location', 'heal' ),
-            ),
-        ),
-    ) );
+    // CSF::createSection( $prefix . '_event_options', array(
+    //     'title'      => esc_html__( 'Hafsa Event Settings', 'heal' ),
+    //     'fields'     => array(
+    //         array(
+    //             'id'    => 'hafsa_event_date',
+    //             'type'  => 'date',
+    //             'title' => esc_html__( 'Hafsa Event Date', 'heal' ),
+    //             'desc'  => esc_html__( 'choose your event date', 'heal' ),
+    //         ),
+    //         array(
+    //             'id'          => 'hafsa_event_time',
+    //             'type'        => 'text',
+    //             'title'       => esc_html__( 'Hafsa Event Time', 'heal' ),
+    //             'desc'        => esc_html__( 'Enter the event time: 10:30:25', 'heal' ),
+    //             'time_24hr'   => true,
+    //         ),
+    //         array(
+    //             'id'    => 'hafsa_event_location',
+    //             'type'  => 'text',
+    //             'title' => esc_html__( 'Hafsa Event Location', 'heal' ),
+    //         ),
+    //     ),
+    // ) );
 
 
 

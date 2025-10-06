@@ -395,7 +395,7 @@ if (!class_exists('Heal_Init')) {
                 ),              
                 array(
                     'handle' => 'heal-main-style',
-                    'src' => HEAL_CSS . '/heal-core' . $css_ext,
+                    'src' => HEAL_CSS . '/heal-core-min' . $css_ext,
                     'deps' => array(),
                     'ver' => $theme_version,
                     'media' => 'all',

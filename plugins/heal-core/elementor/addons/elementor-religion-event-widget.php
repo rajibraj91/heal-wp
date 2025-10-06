@@ -73,60 +73,16 @@ class Theme_Hafsa_Event extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'style',
-            [
-                'label'   => esc_html__( 'Select Style', 'heal-core' ),
-                'type'    => Controls_Manager::SELECT,
-                'default' => 'style1',
-                'options' => [
-                    'style1' => esc_html__( 'Style 1', 'heal-core' ),
-                    // 'style2' => esc_html__( 'Style 2', 'heal-core' ),0000000000000000000000000000
-                ],
-            ]
-        );
-
         // $this->add_control(
-        //     'button',
+        //     'style',
         //     [
-        //         'label'       => __( 'Details Button Text', 'heal-core' ),
-        //         'type'        => Controls_Manager::TEXT,
-        //         'default'     => esc_html__('Read More', 'heal-core'),
-        //         'placeholder' => esc_html__( 'Enter your button text', 'heal-core' ),
-        //     ]
-        // );
-
-        // $this->add_control(
-        //     'reg_button_switcher',
-        //     [
-        //         'label'     => esc_html__('Join Button Switcher', 'heal-core'),
-        //         'type'      => Controls_Manager::SWITCHER,
-        //         'condition' => [ 'style' => 'style1' ],
-        //     ]
-        // );
-
-        // $this->add_control(
-        //     'reg_button',
-        //     [
-        //         'label'       => __( 'Join Button Text', 'heal-core' ),
-        //         'type'        => Controls_Manager::TEXT,
-        //         'default'     => esc_html__('Join Now', 'heal-core'),
-        //         'placeholder' => esc_html__( 'Enter join button text', 'heal-core' ),
-        //         'condition'   => [ 'reg_button_switcher' => 'yes', 'style' => 'style1' ],
-        //     ]
-        // );
-
-        // $this->add_control(
-        //     'reg_button_url',
-        //     [
-        //         'label'       => esc_html__( 'Join Button URL', 'heal-core' ),
-        //         'type'        => Controls_Manager::URL,
-        //         'placeholder' => esc_html__( 'https://your-link.com', 'heal-core' ),
-        //         'default'     => [ 'url' => '#' ],
-        //         'show_external' => true,
-        //         'condition'   => [ 'reg_button_switcher' => 'yes', 'style' => 'style1' ],
-        //         'label_block' => true,
-        //         'separator'   => 'after',
+        //         'label'   => esc_html__( 'Select Style', 'heal-core' ),
+        //         'type'    => Controls_Manager::SELECT,
+        //         'default' => 'style1',
+        //         'options' => [
+        //             'style1' => esc_html__( 'Style 1', 'heal-core' ),
+        //             // 'style2' => esc_html__( 'Style 2', 'heal-core' ),0000000000000000000000000000
+        //         ],
         //     ]
         // );
 
@@ -139,17 +95,6 @@ class Theme_Hafsa_Event extends Widget_Base {
                 'description' => esc_html__('-1 for all posts', 'heal-core'),
             ]
         );
-
-        // $this->add_control(
-        //     'offset',
-        //     [
-        //         'label'       => esc_html__('Offset', 'heal-core'),
-        //         'type'        => Controls_Manager::NUMBER,
-        //         'default'     => 0,
-        //         'description' => esc_html__('Skip this many posts from start', 'heal-core'),
-        //     ]
-        // );
-
         $this->add_control(
             'category',
             [
@@ -207,25 +152,124 @@ class Theme_Hafsa_Event extends Widget_Base {
                 'default' => '',
             ]
         );
-
-        // $this->add_control(
-        //     'pagination',
-        //     [
-        //         'label'   => esc_html__('Pagination', 'heal-core'),
-        //         'type'    => Controls_Manager::SWITCHER,
-        //         'default' => 'yes'
-        //     ]
-        // );
-
         $this->end_controls_section();
+        // ========== BASIC / QUERY ==========
 
+
+
+        // Style Tab Start Here...
+        // STYLE: Section Header
+        $this->start_controls_section(
+            'style_section_header',
+            [
+                'label' => __( 'Section Header', 'heal-core' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        
+        $this->add_control(
+            'ht_width',
+            [
+                'label'     => __( 'Width', 'heal-core' ),
+                'type'      => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100000,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hafsa .header-title' => 'max-width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'ht_align',
+            [
+                'label'   => esc_html__( 'Alignment', 'heal-core' ),
+                'type'    => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left'   => [
+                        'title' => __( 'Left', 'heal-core' ),
+                        'icon'  => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => __( 'Center', 'heal-core' ),
+                        'icon'  => 'eicon-text-align-center',
+                    ],
+                    'right'  => [
+                        'title' => __( 'Right', 'heal-core' ),
+                        'icon'  => 'eicon-text-align-right',
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hafsa .header-title' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'subtitle_margin',
+            [
+                'label'      => __( 'Sub Title Margin', 'heal-core' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .header-title h5' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' => 'before',
+            ]
+        );
+        $this->add_control(
+            'sh_subtitle_color',
+            [
+                'label'     => __( 'Sub Title Color', 'heal-core' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [ '{{WRAPPER}} .header-title h5' => 'color: {{VALUE}};' ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [ 'name' => 'sh_subtitle_typo', 'selector' => '{{WRAPPER}} .header-title h5' ],
+        );
+        $this->add_responsive_control(
+            'title_margin',
+            [
+                'label'      => __( 'Title Margin', 'heal-core' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .header-title h2' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' => 'before',
+            ]
+        );
+        $this->add_control(
+            'sh_title_color',
+            [
+                'label'     => __( 'Title Color', 'heal-core' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [ '{{WRAPPER}} .header-title h2' => 'color: {{VALUE}};' ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [ 'name' => 'sh_title_typo', 'selector' => '{{WRAPPER}} .header-title h2' ]
+        );
+        $this->end_controls_section();
+        // STYLE: Section Header
         
 
-        // ========== STYLE: Card ==========
+        // ========== STYLE: Card Content Box ==========
         $this->start_controls_section(
             'style_card',
             [
-                'label' => __( 'Card', 'heal-core' ),
+                'label' => __( 'Card Content Box', 'heal-core' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -236,7 +280,7 @@ class Theme_Hafsa_Event extends Widget_Base {
                 'label'     => __( 'Background', 'heal-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .event__item' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -245,7 +289,7 @@ class Theme_Hafsa_Event extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'card_border',
-                'selector' => '{{WRAPPER}} .event__item',
+                'selector' => '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content',
             ]
         );
 
@@ -256,7 +300,7 @@ class Theme_Hafsa_Event extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .event__item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -268,7 +312,7 @@ class Theme_Hafsa_Event extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .event__inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -277,15 +321,28 @@ class Theme_Hafsa_Event extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'card_shadow',
-                'selector' => '{{WRAPPER}} .event__item',
+                'selector' => '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner',
             ]
         );
-
+        $this->add_control(
+            'card_border_hover_color',
+            [
+                'label'     => __( 'Hover Border Color', 'heal-core' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner:hover .lab-content' => 'border-color: {{VALUE}};',
+                ],
+                'separator' => 'before',
+            ]
+        );
         $this->end_controls_section();
+        // ========== STYLE: Card Content Box ==========
+
+
 
         // ========== STYLE: Title / Meta / Text ==========
         $this->start_controls_section(
-            'style_typo',
+        'style_typo',
             [
                 'label' => __( 'Title & Meta', 'heal-core' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
@@ -300,39 +357,83 @@ class Theme_Hafsa_Event extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'title_color',
-            [
-                'label'     => __( 'Title Color', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .event__content h5, {{WRAPPER}} .event__right h5' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .event__content h5 a, {{WRAPPER}} .event__right h5 a' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
+        // Title Color - Normal & Hover
+        $this->start_controls_tabs('title_color_tabs');
+            // Normal
+            $this->start_controls_tab(
+                'title_color_normal',
+                [
+                    'label' => __( 'Normal', 'heal-core' ),
+                ]
+            );
+            $this->add_control(
+                'title_color_normal_control',
+                [
+                    'label'     => __( 'Title Color', 'heal-core' ),
+                    'type'      => Controls_Manager::COLOR,
+                    'separator' => 'after',
+                    'selectors' => [
+                        '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content h5, .hafsa .event-top .event-top-content .event-top-content-wrapper h3' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content h5 a, .hafsa .event-top .event-top-content .event-top-content-wrapper h3 a' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+            $this->end_controls_tab();
+            // Hover
+            $this->start_controls_tab(
+                'title_color_hover',
+                [
+                    'label' => __( 'Hover', 'heal-core' ),
+                ]
+            );
+            $this->add_control(
+                'title_color_hover_control',
+                [
+                    'label'     => __( 'Title Hover Color', 'heal-core' ),
+                    'type'      => Controls_Manager::COLOR,
+                    'separator' => 'after',
+                    'selectors' => [
+                        '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner:hover .lab-content h5, .hafsa .event-top .event-top-content .event-top-content-wrapper h3:hover' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner:hover .lab-content h5 a, .hafsa .event-top .event-top-content .event-top-content-wrapper h3 a:hover' => 'color: {{VALUE}};',
+                    ],
+                ]
+            );
+            $this->end_controls_tab();
+        $this->end_controls_tabs();
+        // Title Color - Normal & Hover
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'meta_typo',
                 'label'    => __( 'Meta/Text Typography', 'heal-core' ),
-                'selector' => '{{WRAPPER}} .event__content ul, {{WRAPPER}} .event__content p, {{WRAPPER}} .event__right ul, {{WRAPPER}} .event__right p',
+                'selector' => '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content ul li, .hafsa .event-date li',
             ]
         );
-
         $this->add_control(
-            'meta_color',
+            'meta_icon_color_control',
             [
-                'label'     => __( 'Meta/Text Color', 'heal-core' ),
+                'label'     => __( 'Icon Color', 'heal-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .event__content ul li, {{WRAPPER}} .event__content p, {{WRAPPER}} .event__right ul li, {{WRAPPER}} .event__right p' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content ul li i, .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content ul li svg, .hafsa .event-date li i, .hafsa .event-date li svg' => 'color: {{VALUE}};',
                 ],
             ]
         );
-
+        $this->add_control(
+            'meta_icon_margin',
+            [
+                'label'      => __( 'Icon Margin', 'heal-core' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content ul li i, .hafsa .event-section .event-content .event-bottom .event-item .lab-inner .lab-content ul li svg, .hafsa .event-date li i, .hafsa .event-date li svg' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->end_controls_section();
+
+
 
         // ========== STYLE: Date Badge ==========
         $this->start_controls_section(
@@ -340,214 +441,119 @@ class Theme_Hafsa_Event extends Widget_Base {
             [
                 'label' => __( 'Date Badge', 'heal-core' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
-                'conditions' => [
-                    'relation' => 'and',
-                    'terms' => [
-                        [
-                            'name' => 'thumb_date',
-                            'operator' => '==',
-                            'value' => 'yes',
-                        ]
-                    ]
-                ]
             ]
         );
-
+        $this->add_control(
+            'badge_width',
+            [
+                'label'     => __( 'Width', 'heal-core' ),
+                'type'      => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 200,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hafsa .event-count li' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'badge_height',
+            [
+                'label'     => __( 'height', 'heal-core' ),
+                'type'      => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 200,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hafsa .event-count li' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'badge_typo',
-                'selector' => '{{WRAPPER}} .event__left h4, {{WRAPPER}} .event__left h6',
+                'selector' => '{{WRAPPER}} .hafsa .event-count li div',
+                'separator' => 'after',
             ]
         );
-
+        $this->add_control(
+            'badge_number_color',
+            [
+                'label'     => __( 'Number Color', 'heal-core' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hafsa .event-count li span' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'badge_number_margin',
+            [
+                'label'      => __( 'Number Margin', 'heal-core' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .hafsa .event-count li span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' => 'after',
+            ]
+        );
         $this->add_control(
             'badge_color',
             [
                 'label'     => __( 'Text Color', 'heal-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .event__left h4, {{WRAPPER}} .event__left h6' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .hafsa .event-count li div' => 'color: {{VALUE}};',
                 ],
             ]
         );
-
         $this->add_control(
             'badge_bg',
             [
                 'label'     => __( 'Badge Background', 'heal-core' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .event__left' => 'background: {{VALUE}};',
+                    '{{WRAPPER}} .hafsa .event-count li' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
-
-        $this->end_controls_section();
-
-        // ========== STYLE: Button ==========
-        $this->start_controls_section(
-            'style_button',
-            [
-                'label' => __( 'Button', 'heal-core' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'btn_align',
-            [
-                'label'     => esc_html__( 'Alignment', 'heal-core' ),
-                'type'      => Controls_Manager::CHOOSE,
-                'options'   => [
-                    'left'   => [ 'title' => __( 'Left', 'heal-core' ), 'icon' => 'eicon-text-align-left' ],
-                    'center' => [ 'title' => __( 'Center', 'heal-core' ), 'icon' => 'eicon-text-align-center' ],
-                    'right'  => [ 'title' => __( 'Right', 'heal-core' ), 'icon' => 'eicon-text-align-right' ],
-                ],
-                'selectors' => [ '{{WRAPPER}} .event__btn' => 'text-align: {{VALUE}};' ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'     => 'btn_typo',
-                'selector' => '{{WRAPPER}} .default-btn',
-            ]
-        );
-
-        $this->add_control(
-            'btn_color',
-            [
-                'label'     => __( 'Text Color', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .default-btn' => 'color: {{VALUE}} !important;' ],
-            ]
-        );
-
-        $this->add_control(
-            'btn_bg',
-            [
-                'label'     => __( 'Background', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .default-btn' => 'background: {{VALUE}} !important;' ],
-            ]
-        );
-
-        $this->add_control(
-            'btn_color_hover',
-            [
-                'label'     => __( 'Hover Text', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .default-btn:hover' => 'color: {{VALUE}} !important;' ],
-            ]
-        );
-
-        $this->add_control(
-            'btn_bg_hover',
-            [
-                'label'     => __( 'Hover Background', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .default-btn:hover'   => 'background: {{VALUE}} !important;',
-                    '{{WRAPPER}} .default-btn::before' => 'background: {{VALUE}} !important;',
-                    '{{WRAPPER}} .default-btn::after'  => 'background: {{VALUE}} !important;',
-                ],
-            ]
-        );
-
         $this->add_group_control(
             Group_Control_Border::get_type(),
+            [ 'name' => 'badge_border', 'selector' => '{{WRAPPER}} .hafsa .event-count li' ]
+        );
+        $this->add_responsive_control(
+            'badge_border_radius',
             [
-                'name'     => 'btn_border',
-                'selector' => '{{WRAPPER}} .default-btn',
+                'label'     => __( 'Border Radius', 'heal-core' ),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [ 'px' => [ 'min' => 0, 'max' => 100 ] ],
+                'selectors' => [ '{{WRAPPER}} .hafsa .event-count li' => 'border-radius: {{SIZE}}{{UNIT}};' ],
             ]
         );
-
-        $this->add_control(
-            'btn_radius',
-            [
-                'label'      => __( 'Border Radius', 'heal-core' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%' ],
-                'selectors'  => [ '{{WRAPPER}} .default-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;' ],
-            ]
-        );
-
-        $this->add_control(
-            'btn_padding',
-            [
-                'label'      => __( 'Padding', 'heal-core' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [ '{{WRAPPER}} .default-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;' ],
-            ]
-        );
-
         $this->end_controls_section();
+        // ========== STYLE: Date Badge ==========
 
-        // ========== STYLE: Section Header ==========
-        $this->start_controls_section(
-            'style_section_header',
-            [
-                'label' => __( 'Section Header', 'heal-core' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-                'condition' => [ 'style!' => 'style1' ],
-            ]
-        );
+        
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'     => 'sh_title_typo',
-                'selector' => '{{WRAPPER}} .section-header h2, {{WRAPPER}} .section-header h3, {{WRAPPER}} .section-header h4',
-            ]
-        );
-
-        $this->add_control(
-            'sh_title_color',
-            [
-                'label'     => __( 'Title Color', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .section-header h2, {{WRAPPER}} .section-header h3, {{WRAPPER}} .section-header h4' => 'color: {{VALUE}} !important;',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'     => 'sh_desc_typo',
-                'label'    => __( 'Description Typography', 'heal-core' ),
-                'selector' => '{{WRAPPER}} .section-header p',
-            ]
-        );
-
-        $this->add_control(
-            'sh_desc_color',
-            [
-                'label'     => __( 'Description Color', 'heal-core' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [ '{{WRAPPER}} .section-header p' => 'color: {{VALUE}} !important;' ],
-            ]
-        );
-
-        $this->add_control(
-            'sh_align',
-            [
-                'label'     => esc_html__( 'Alignment', 'heal-core' ),
-                'type'      => Controls_Manager::CHOOSE,
-                'options'   => [
-                    'left'   => [ 'title' => __( 'Left', 'heal-core' ), 'icon' => 'eicon-text-align-left' ],
-                    'center' => [ 'title' => __( 'Center', 'heal-core' ), 'icon' => 'eicon-text-align-center' ],
-                    'right'  => [ 'title' => __( 'Right', 'heal-core' ), 'icon' => 'eicon-text-align-right' ],
-                ],
-                'selectors' => [ '{{WRAPPER}} .section-header' => 'text-align: {{VALUE}};' ],
-            ]
-        );
-
-        $this->end_controls_section();
+        
 
         // ========== STYLE: Instant CSS ==========
         $this->start_controls_section(
@@ -557,665 +563,214 @@ class Theme_Hafsa_Event extends Widget_Base {
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
-
-        $this->add_control(
-            'enable_inst_css',
-            [
-                'label'        => __( 'Enable', 'heal-core' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
-                'description'  => __( 'Use "&" to target this widget. Example: & .event__item{box-shadow:0 10px 30px rgba(0,0,0,.06)}', 'heal-core' ),
-            ]
-        );
-
         $this->add_control(
             'inst_css',
             [
                 'label'       => __( 'CSS', 'heal-core' ),
                 'type'        => Controls_Manager::TEXTAREA,
                 'rows'        => 10,
-                'placeholder' => "& .event__right h5{letter-spacing:.3px;}",
-                'condition'   => [ 'enable_inst_css' => 'yes' ],
+                'placeholder' => ".event__right h5{ letter-spacing: .3px; }",
             ]
         );
-
         $this->end_controls_section();
+        // ========== STYLE: Instant CSS ==========
     }
 
     protected function render() {
         $settings     = $this->get_settings_for_display();
-        $allowed_tags = wp_kses_allowed_html('post');
 
         $root_id  = 'heal-event-' . $this->get_id();
         $root_sel = '#' . $root_id;
 
-        // paging
-        if ( get_query_var('paged') ) {
-            $paged = (int) get_query_var('paged');
-        } elseif ( get_query_var('page') ) {
-            $paged = (int) get_query_var('page');
-        } else {
-            $paged = 1;
-        }
+        // Helper: Parse Event Meta
+        $parse_event_meta = function($post_id) {
+            $meta = get_post_meta($post_id, 'heal_event_options', true);
+            $meta = is_array($meta) ? $meta : [];
 
-        $total     = isset($settings['total']) ? (int)$settings['total'] : -1;
-        $order     = !empty($settings['order']) ? $settings['order'] : 'DESC';
-        $orderby   = !empty($settings['orderby']) ? $settings['orderby'] : 'date';
-        $offset    = isset($settings['offset']) ? (int)$settings['offset'] : 0;
-        $category  = !empty($settings['category']) ? (array)$settings['category'] : [];
+            $location = $meta['event_location'] ?? '';
+
+            // Event Date
+            $date_raw = $meta['event_date'] ?? '';
+            $ts       = $date_raw ? strtotime($date_raw) : false;
+            $day      = $ts ? date('d', $ts) : '';
+            $month    = $ts ? date('M', $ts) : '';
+            $datefmt  = $ts ? date('Y-m-d', $ts) : ''; // countdown format
+
+            // Event Time
+            $time_raw = $meta['event_time'] ?? '';
+            $time     = '';
+            if ($time_raw) {
+                $dt = \DateTime::createFromFormat('H:i:s', $time_raw);
+                if (!$dt) { $dt = \DateTime::createFromFormat('H:i', $time_raw); }
+                if ($dt) { $time = $dt->format('H:i:s'); } // countdown format
+            }
+
+            return [ $location, $day, $month, $datefmt, $time ];
+        };
+
+        // Pagination
+        $paged = max( 1, get_query_var('paged') ? get_query_var('paged') : get_query_var('page') );
 
         $args = [
             'post_type'           => 'event',
-            'posts_per_page'      => $total,
-            'order'               => $order,
-            'orderby'             => $orderby,
+            'posts_per_page'      => !empty($settings['total']) ? (int)$settings['total'] : -1,
+            'order'               => !empty($settings['order']) ? $settings['order'] : 'DESC',
+            'orderby'             => !empty($settings['orderby']) ? $settings['orderby'] : 'date',
             'post_status'         => 'publish',
-            'ignore_sticky_posts' => 1,
+            'ignore_sticky_posts' => true,
             'paged'               => $paged,
         ];
-        if ( $offset > 0 ) { $args['offset'] = $offset; }
 
-        if ( !empty( $category ) ) {
+        if ( !empty( $settings['category'] ) ) {
             $args['tax_query'] = [
                 [
                     'taxonomy' => 'event-cat',
                     'field'    => 'term_id',
-                    'terms'    => $category
+                    'terms'    => (array) $settings['category'],
                 ]
             ];
         }
 
         $query = new \WP_Query($args);
+    ?>
+    <div class="hafsa" id="<?php echo esc_attr($root_id); ?>">
+        <div class="event-section padding-tb padding-b shape-4">
+            <div class="container">
+                <div class="row">
+                    <?php if ( !empty($settings['section_title']) ): ?>
+                        <div class="col-12">
+                            <div class="header-title">
+                                <?php if ( !empty($settings['section_subtitle']) ): ?>
+                                    <h5><?php echo esc_html( $settings['section_subtitle'] ); ?></h5>
+                                <?php endif; ?>
+                                <h2><?php echo esc_html( $settings['section_title'] ); ?></h2>
+                            </div>
+                        </div>
+                    <?php endif; ?>
 
-        // Helper: meta parse
-        $parse_event_meta = function() {
-            $meta = get_post_meta(get_the_ID(), 'heal_event_options', true);
-            $meta = is_array($meta) ? $meta : [];
+                    <div class="col-12">
+                        <?php if ( $query->have_posts() ) : ?>
+                            <?php 
+                                $query->the_post();
+                                list($location, $day, $month, $datefmt, $time) = $parse_event_meta(get_the_ID());
+                            ?>
+                            <div class="event-content">
+                                <div class="event-top tri-shape-2 pattern-2">
+                                    <?php if ( 'yes' === $settings['image_thumb_display'] ) : ?>
+                                        <div class="event-top-thumb">
+                                            <?php the_post_thumbnail('large'); ?>
+                                        </div>
+                                    <?php endif; ?>
 
-            $location = $meta['event_location'] ?? '';
+                                    <div class="event-top-content">
+                                        <div class="event-top-content-wrapper">
+                                            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> </h3>
+                                            <div class="date-count-wrapper">
+                                                <ul class="lab-ul event-date">
+                                                    <?php if ($datefmt): ?>
+                                                        <li><i class="fa-solid fa-calendar-days"></i> <span><?php echo esc_html( date_i18n( get_option('date_format'), strtotime($datefmt) ) ); ?></span></li>
+                                                    <?php endif; ?>
+                                                    <?php if ($location): ?>
+                                                        <li><i class="fa-solid fa-location-dot"></i> <span><?php echo esc_html($location); ?></span></li>
+                                                    <?php endif; ?>
+                                                </ul>
 
-            // date
-            $date_raw = $meta['event_date'] ?? '';
-            $ts       = $date_raw ? strtotime($date_raw) : false;
-            $day      = $ts ? date('d', $ts) : '';
-            $month    = $ts ? date('M', $ts) : '';
-            $datefmt  = $ts ? date('d M, Y', $ts) : '';
 
-            // time
-            $time_raw = $meta['event_time'] ?? '';
-            $time     = '';
-            if ( $time_raw ) {
-                $dt = \DateTime::createFromFormat('H:i:s', $time_raw);
-                if (!$dt) { $dt = \DateTime::createFromFormat('H:i', $time_raw); }
-                if ($dt) { $time = $dt->format('h:i A'); }
-            }
+                                                <?php if ( 'yes' === $settings['thumb_date'] ) : ?>
+                                                    <?php
+                                                        // Event datetime
+                                                        $event_datetime_str = $datefmt . ' ' . $time;
+                                                        $event_datetime = new \DateTime($event_datetime_str);
+                                                        $current_datetime = new \DateTime();
 
-            $speakers = isset($meta['event_speakers']) && is_array($meta['event_speakers']) ? $meta['event_speakers'] : [];
+                                                        if ($current_datetime > $event_datetime) {
+                                                            // Event expired
+                                                            echo '<div class="event-expired-message text-danger mt-3">🔔 ' . esc_html__('This event has expired.', 'heal-core') . '</div>';
+                                                        } else {
+                                                            // Event upcoming, show countdown
+                                                            ?>
+                                                            <ul class="lab-ul event-count count-down" data-date="<?php echo esc_attr($event_datetime_str); ?>">
+                                                                <li>
+                                                                    <span class="days">0</span>
+                                                                    <div class="count-text"><?php esc_html_e('Days', 'heal-core'); ?></div>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="hours">0</span>
+                                                                    <div class="count-text"><?php esc_html_e('Hours', 'heal-core'); ?></div>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="minutes">0</span>
+                                                                    <div class="count-text"><?php esc_html_e('Min', 'heal-core'); ?></div>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="seconds">0</span>
+                                                                    <div class="count-text"><?php esc_html_e('Sec', 'heal-core'); ?></div>
+                                                                </li>
+                                                            </ul>
+                                                            <?php
+                                                        }
+                                                    ?>
 
-            return [ $location, $day, $month, $datefmt, $time, $speakers ];
-        };
 
-        // Swiper init (only for slider styles)
-        // if ( in_array( $settings['style'], ['style5', 'style6'], true ) ) {
-        //     echo '<script>
-        //     jQuery(function($){
-        //         var root = $("#'.esc_js($root_id).'");
-        //         if(!root.length) return;
-        //         var wrap = root.find(".event__slider");
-        //         if(!wrap.length) return;
-        //         var swiper = new Swiper(wrap[0], {
-        //             loop: true,
-        //             autoplay: { delay: 10000, disableOnInteraction: false },
-        //             navigation: {
-        //                 nextEl: root.find(".event__next")[0],
-        //                 prevEl: root.find(".event__prev")[0],
-        //             }
-        //         });
-        //     });
-        //     </script>';
-        // }
-        ?>
-
-        <div id="<?php echo esc_attr($root_id); ?>">
-            <?php if ( 'style1' === $settings['style'] ) : ?>
-                <div class="hafsa">
-                    <div class="event-section padding-tb padding-b shape-4">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="header-title">
-                                        <h5>Upcoming Events</h5>
-                                        <h2>Ethical And Moral Beliefs That Guides
-                                            To The Straight Path!</h2>
+                                                    
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <?php wp_reset_postdata(); ?>
                                 </div>
-                                <?php if ( $query->have_posts() ) : ?>
-                                <div class="col-12">
-                                    <div class="event-content">
+
+                                <div class="event-bottom">
+                                    <div class="row justify-content-center">
                                         <?php 
-                                            $count = 0;
-                                            while ( $query->have_posts() ) : 
-                                            $query->the_post();
-
-                                            list($event_location,$event_day,$event_month,$event_date,$event_time,$event_speakers) = $parse_event_meta();
-                                            $speaker = !empty($event_speakers[0]) ? $event_speakers[0] : [];
-                                            $speaker_img_id  = isset($speaker['speaker_image']['id']) ? $speaker['speaker_image']['id'] : '';
-                                            $speaker_img_url = $speaker_img_id ? wp_get_attachment_image_url($speaker_img_id, 'thumbnail') : '';
+                                            $bottom_query = new \WP_Query($args);
+                                            $i = 0;
+                                            while ( $bottom_query->have_posts() ) : $bottom_query->the_post(); 
+                                            if ( $i == 0 ) { $i++; continue; } // skip top one
+                                            list($location, $day, $month, $datefmt, $time) = $parse_event_meta(get_the_ID());
                                         ?>
-                                        <div class="event-top tri-shape-2 pattern-2">
-                                            <?php if ( 'yes' === $settings['image_thumb_display'] ) : ?>
-                                                <div class="event-top-thumb">
-                                                    <?php the_post_thumbnail('large'); ?>
-                                                </div>
-                                            <?php endif; ?>
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="event-item lab-item">
+                                                <div class="lab-inner">
+                                                    <?php if ( 'yes' === $settings['image_thumb_display'] ) : ?>
+                                                        <div class="lab-thumb">
+                                                            <?php the_post_thumbnail('large'); ?>
+                                                        </div>
+                                                    <?php endif; ?>
 
-                                            <div class="event-top-content">
-                                                <div class="event-top-content-wrapper">
-                                                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> </h3>
-                                                    <div class="date-count-wrapper">
+                                                    <div class="lab-content">
+                                                        <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> </h5>
                                                         <ul class="lab-ul event-date">
-                                                            <li><i class="fa-solid fa-calendar-days"></i> <span>December 24,2021</span></li>
-                                                            <li><i class="fa-solid fa-location-dot"></i> <span>New York AK United States</span></li>
+                                                            <?php if ($datefmt): ?>
+                                                                <li><i class="fa-solid fa-calendar-days"></i> <span><?php echo esc_html( date_i18n( get_option('date_format'), strtotime($datefmt) ) ); ?></span></li>
+                                                            <?php endif; ?>
+                                                            <?php if ($location): ?>
+                                                                <li><i class="fa-solid fa-location-dot"></i> <span><?php echo esc_html($location); ?></span></li>
+                                                            <?php endif; ?>
                                                         </ul>
-
-                                                        <?php if ( 'yes' === $settings['thumb_date'] ) : ?>
-                                                            <ul class="lab-ul event-count" data-date="July 05, 2024 21:14:01">
-                                                                <li>
-                                                                    <span class="days"><?php echo esc_html__('34', 'heal-core'); ?></span>
-                                                                    <div class="count-text"><?php echo esc_html__('Days', 'heal-core'); ?></div>
-                                                                </li>
-                                                                <li>
-                                                                    <span class="hours"><?php echo esc_html__('09', 'heal-core'); ?></span>
-                                                                    <div class="count-text"><?php echo esc_html__('Hours', 'heal-core'); ?></div>
-                                                                </li>
-                                                                <li>
-                                                                    <span class="minutes"><?php echo esc_html__('32', 'heal-core'); ?></span>
-                                                                    <div class="count-text"><?php echo esc_html__('Min', 'heal-core'); ?></div>
-                                                                </li>
-                                                                <li>
-                                                                    <span class="seconds"><?php echo esc_html__('32', 'heal-core'); ?></span>
-                                                                    <div class="count-text"><?php echo esc_html__('Sec', 'heal-core'); ?></div>
-                                                                </li>
-                                                            </ul>
-                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php 
-                                            $count++;
-                                            if ( $count >= 1 ) break;
-                                            endwhile;
-                                            wp_reset_postdata(); 
-                                        ?>
-
-                                        <div class="event-bottom">
-                                            <div class="row justify-content-center">
-                                                <?php 
-                                                    $count = 0;
-                                                    while ( $query->have_posts() ) : 
-                                                    $query->the_post();
-
-                                                    list($event_location,$event_day,$event_month,$event_date,$event_time,$event_speakers) = $parse_event_meta();
-                                                    $speaker = !empty($event_speakers[0]) ? $event_speakers[0] : [];
-                                                    $speaker_img_id  = isset($speaker['speaker_image']['id']) ? $speaker['speaker_image']['id'] : '';
-                                                    $speaker_img_url = $speaker_img_id ? wp_get_attachment_image_url($speaker_img_id, 'thumbnail') : '';
-                                                ?>
-                                                <div class="col-lg-4 col-md-6 col-12">
-                                                    <div class="event-item lab-item">
-                                                        <div class="lab-inner">
-                                                            <div class="lab-thumb">
-                                                                <?php the_post_thumbnail('large'); ?>
-                                                            </div>
-                                                            <div class="lab-content">
-                                                                <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> </h5>
-                                                                <ul class="lab-ul event-date">
-                                                                    <li><i class="icofont-calendar"></i> <span>December 24,2021</span></li>
-                                                                    <li><i class="icofont-location-pin"></i> <span>New York AK United States</span></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php 
-                                                    $count++;
-                                                    endwhile;
-                                                    wp_reset_postdata(); 
-                                                ?>
-                                            </div>
-                                        </div>
+                                        <?php endwhile; wp_reset_postdata(); ?>
                                     </div>
                                 </div>
-                                <?php else: ?>
-                                    <div class="col-12"><p><?php esc_html_e('No events found.', 'heal-core'); ?></p></div>
-                                <?php endif; ?>
                             </div>
-                        </div>
+                        <?php else: ?>
+                            <div class="col-12"><p><?php esc_html_e('No events found.', 'heal-core'); ?></p></div>
+                        <?php endif; ?>
                     </div>
                 </div>
-
-            <?php elseif ( 'style2' === $settings['style'] ) : ?>
-                <div class="event-section padding--top padding--bottom bg-white" id="event">
-                    <div class="container">
-                        <div class="row g-4">
-                            <div class="col-lg-8 col-12">
-                                <?php if ( !empty($settings['section_title']) || !empty($settings['section_description']) ) : ?>
-                                <div class="section-header style-3">
-                                    <?php if ( !empty($settings['section_title']) ) : ?><h4><?php echo wp_kses($settings['section_title'], $allowed_tags); ?></h4><?php endif; ?>
-                                    <?php if ( !empty($settings['section_description']) ) : ?><p><?php echo wp_kses($settings['section_description'], $allowed_tags); ?></p><?php endif; ?>
-                                </div>
-                                <?php endif; ?>
-
-                                <div class="section-wrapper">
-                                    <div class="event">
-                                        <div class="row g-4">
-                                            <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
-                                                list($event_location,$event_day,$event_month,$event_date,$event_time,$event_speakers) = $parse_event_meta();
-                                                $speaker = !empty($event_speakers[0]) ? $event_speakers[0] : [];
-                                                $speaker_img_id  = isset($speaker['speaker_image']['id']) ? $speaker['speaker_image']['id'] : '';
-                                                $speaker_img_url = $speaker_img_id ? wp_get_attachment_image_url($speaker_img_id, 'thumbnail') : '';
-                                            ?>
-                                            <div class="col-sm-6 col-12">
-                                                <div class="event__item">
-                                                    <div class="event__inner">
-                                                        <?php if ( 'yes' === $settings['image_thumb_display'] ) : ?>
-                                                            <div class="event__thumb"><?php the_post_thumbnail('large'); ?></div>
-                                                        <?php endif; ?>
-                                                        <div class="event__content">
-                                                            <?php if ( !empty($speaker) ) : ?>
-                                                                <div class="event__author">
-                                                                    <?php if ( $speaker_img_url ) : ?>
-                                                                        <img src="<?php echo esc_url($speaker_img_url); ?>" alt="<?php echo esc_attr($speaker['speaker_name'] ?? ''); ?>" class="rounded-circle">
-                                                                    <?php endif; ?>
-                                                                    <div class="name">
-                                                                        <h6><?php echo esc_html($speaker['speaker_name'] ?? ''); ?></h6>
-                                                                        <span><?php echo esc_html($speaker['speaker_role'] ?? ''); ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            <?php endif; ?>
-                                                            <div class="event__list">
-                                                                <a href="<?php the_permalink(); ?>"><h5><?php the_title(); ?></h5></a>
-                                                                <ul>
-                                                                    <li><i class="far fa-clock"></i> <b><?php esc_html_e('Time :-', 'heal-core'); ?></b> <?php echo esc_html($event_date); ?> <?php esc_html_e('at', 'heal-core'); ?> <?php echo esc_html($event_time); ?></li>
-                                                                    <li><i class="fas fa-map-marker-alt"></i> <b><?php esc_html_e('Address :-', 'heal-core'); ?></b> <?php echo esc_html($event_location); ?></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="event__btn">
-                                                                <a href="<?php the_permalink(); ?>" class="default-btn move-right"><span><?php echo esc_html($settings['button']); ?></span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php endwhile; wp_reset_postdata(); else: ?>
-                                                <div class="col-12"><p><?php esc_html_e('No events found.', 'heal-core'); ?></p></div>
-                                            <?php endif; ?>
-                                        </div>
-
-                                        <?php if ( 'yes' === $settings['pagination'] ) : ?>
-                                            <nav aria-label="Page navigation example" class="mt-5">
-                                                <?php
-                                                $big = 999999999;
-                                                $paged_now = max(1, get_query_var('paged'));
-                                                $links = paginate_links( [
-                                                    'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-                                                    'format'    => '?paged=%#%',
-                                                    'current'   => $paged_now,
-                                                    'total'     => $query->max_num_pages,
-                                                    'prev_text' => 'Previous',
-                                                    'next_text' => 'Next',
-                                                    'type'      => 'array',
-                                                    'end_size'  => 1,
-                                                    'mid_size'  => 2,
-                                                ] );
-                                                if ( is_array( $links ) ) {
-                                                    echo '<ul class="pagination justify-content-center">';
-                                                    foreach ( $links as $link ) {
-                                                        if ( strpos( $link, 'current' ) !== false ) echo '<li class="page-item active">' . str_replace( 'page-numbers', 'page-link', $link ) . '</li>';
-                                                        elseif ( strpos( $link, 'dots' ) !== false ) echo '<li class="page-item disabled">' . str_replace( 'page-numbers', 'page-link', $link ) . '</li>';
-                                                        else echo '<li class="page-item">' . str_replace( 'page-numbers', 'page-link', $link ) . '</li>';
-                                                    }
-                                                    echo '</ul>';
-                                                }
-                                                ?>
-                                            </nav>
-                                        <?php endif; ?>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <?php if ( is_active_sidebar('event-sidebar') ) : ?>
-                                <div class="col-lg-4 col-12">
-                                    <div class="sidebar">
-                                        <?php dynamic_sidebar('event-sidebar'); ?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-
-            <?php elseif ( 'style3' === $settings['style'] ) : ?>
-                <div class="event-section padding--top padding--bottom bg-white" id="event">
-                    <div class="container">
-                        <div class="row g-4">
-                            <div class="col-lg-8 col-12">
-                                <div class="section-wrapper">
-                                    <div class="event event-listview">
-                                        <div class="row g-4">
-                                            <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
-                                                list($event_location,$event_day,$event_month,$event_date,$event_time,$event_speakers) = $parse_event_meta();
-                                                $speaker = !empty($event_speakers[0]) ? $event_speakers[0] : [];
-                                                $speaker_img_id  = isset($speaker['speaker_image']['id']) ? $speaker['speaker_image']['id'] : '';
-                                                $speaker_img_url = $speaker_img_id ? wp_get_attachment_image_url($speaker_img_id, 'thumbnail') : '';
-                                            ?>
-                                            <div class="col-12">
-                                                <div class="event__item">
-                                                    <div class="event__inner">
-                                                        <?php if ( 'yes' === $settings['image_thumb_display'] ) : ?>
-                                                            <div class="event__thumb"><?php the_post_thumbnail('large'); ?></div>
-                                                        <?php endif; ?>
-
-                                                        <div class="event__content">
-                                                            <?php if ( !empty($speaker) ) : ?>
-                                                                <div class="event__author">
-                                                                    <?php if ( $speaker_img_url ) : ?>
-                                                                        <img src="<?php echo esc_url($speaker_img_url); ?>" alt="<?php echo esc_attr($speaker['speaker_name'] ?? ''); ?>" class="rounded-circle">
-                                                                    <?php endif; ?>
-                                                                    <div class="name">
-                                                                        <h6><?php echo esc_html($speaker['speaker_name'] ?? ''); ?></h6>
-                                                                        <span><?php echo esc_html($speaker['speaker_role'] ?? ''); ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            <?php endif; ?>
-
-                                                            <div class="event__list">
-                                                                <a href="<?php the_permalink(); ?>"><h5><?php the_title(); ?></h5></a>
-                                                                <ul>
-                                                                    <li><i class="far fa-clock"></i> <b><?php esc_html_e('Time :-', 'heal-core'); ?></b> <?php echo esc_html($event_date); ?> <?php esc_html_e('at', 'heal-core'); ?> <?php echo esc_html($event_time); ?></li>
-                                                                    <li><i class="fas fa-map-marker-alt"></i> <b><?php esc_html_e('Address :-', 'heal-core'); ?></b> <?php echo esc_html($event_location); ?></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="event__btn">
-                                                                <a href="<?php the_permalink(); ?>" class="default-btn move-right"><span><?php echo esc_html($settings['button']); ?></span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php endwhile; wp_reset_postdata(); else: ?>
-                                                <div class="col-12"><p><?php esc_html_e('No events found.', 'heal-core'); ?></p></div>
-                                            <?php endif; ?>
-                                        </div>
-
-                                        <?php if ( 'yes' === $settings['pagination'] ) : ?>
-                                            <nav aria-label="Page navigation example" class="mt-5">
-                                                <?php
-                                                $big = 999999999;
-                                                $paged_now = max(1, get_query_var('paged'));
-                                                $links = paginate_links( [
-                                                    'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-                                                    'format'    => '?paged=%#%',
-                                                    'current'   => $paged_now,
-                                                    'total'     => $query->max_num_pages,
-                                                    'prev_text' => 'Previous',
-                                                    'next_text' => 'Next',
-                                                    'type'      => 'array',
-                                                    'end_size'  => 1,
-                                                    'mid_size'  => 2,
-                                                ] );
-                                                if ( is_array( $links ) ) {
-                                                    echo '<ul class="pagination justify-content-center">';
-                                                    foreach ( $links as $link ) {
-                                                        if ( strpos( $link, 'current' ) !== false ) echo '<li class="page-item active">' . str_replace( 'page-numbers', 'page-link', $link ) . '</li>';
-                                                        elseif ( strpos( $link, 'dots' ) !== false ) echo '<li class="page-item disabled">' . str_replace( 'page-numbers', 'page-link', $link ) . '</li>';
-                                                        else echo '<li class="page-item">' . str_replace( 'page-numbers', 'page-link', $link ) . '</li>';
-                                                    }
-                                                    echo '</ul>';
-                                                }
-                                                ?>
-                                            </nav>
-                                        <?php endif; ?>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <?php if ( is_active_sidebar('event-sidebar') ) : ?>
-                                <div class="col-lg-4 col-12">
-                                    <div class="sidebar">
-                                        <?php dynamic_sidebar('event-sidebar'); ?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-
-            <?php elseif ( 'style4' === $settings['style'] ) : ?>
-                <div class="event-section padding--top padding--bottom" id="event">
-                    <div class="container">
-                        <div class="row g-4">
-                            <?php if ( !empty($settings['section_title']) ) : ?>
-                            <div class="col-xl-3 col-12">
-                                <div class="section-header style-4">
-                                    <?php if ( ! empty( $settings['section_icon'] ) ) : ?>
-                                        <div class="event-icon">
-                                            <?php \Elementor\Icons_Manager::render_icon( $settings['section_icon'], [ 'aria-hidden' => 'true' ]  ); ?>
-                                        </div>
-                                    <?php endif; ?>
-                                    <h3><?php echo wp_kses($settings['section_title'], $allowed_tags);?></h3>
-                                    <?php if(!empty($settings['section_description'])) : ?>
-                                        <p><?php echo wp_kses($settings['section_description'], $allowed_tags);?></p>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ( $query->have_posts() ) : ?>
-                            <div class="col-xl-9 col-12">
-                                <div class="section-wrapper">
-                                    <div class="event event-style3">
-                                        <div class="row g-4">
-                                            <?php while ( $query->have_posts() ) : $query->the_post();
-                                                list($event_location,$event_day,$event_month,$event_date,$event_time,$event_speakers) = $parse_event_meta();
-                                            ?>
-                                            <div class="col-sm-6 col-12">
-                                                <div class="event__item">
-                                                    <div class="event__inner">
-                                                        <?php if ( 'yes' === $settings['thumb_date'] ) : ?>
-                                                        <div class="event__left">
-                                                            <h4><?php echo esc_html($event_day); ?></h4>
-                                                            <h6><?php echo esc_html($event_month); ?></h6>
-                                                        </div>
-                                                        <?php endif; ?>
-
-                                                        <div class="event__right">
-                                                            <a href="<?php the_permalink(); ?>"><h5><?php the_title(); ?></h5></a>
-                                                            <ul>
-                                                                <li><b><?php esc_html_e('Time :', 'heal-core'); ?></b> <?php echo esc_html($event_time); ?></li>
-                                                                <li><b><?php esc_html_e('Address :', 'heal-core'); ?></b> <?php echo esc_html($event_location); ?></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php endwhile; wp_reset_postdata(); ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php else: ?>
-                                <div class="col-12"><p><?php esc_html_e('No events found.', 'heal-core'); ?></p></div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-
-            <?php elseif ( 'style5' === $settings['style'] ) : ?>
-                <div class="event-section padding--top padding--bottom" id="event">
-                    <div class="container">
-                        <div class="row g-4">
-                            <?php if ( !empty($settings['section_title']) ) : ?>
-                            <div class="col-lg-4 col-12">
-                                <div class="section-header style-4">
-                                    <?php if ( ! empty( $settings['section_icon'] ) ) : ?>
-                                        <div class="event-icon">
-                                            <?php \Elementor\Icons_Manager::render_icon( $settings['section_icon'], [ 'aria-hidden' => 'true' ]  ); ?>
-                                        </div>
-                                    <?php endif; ?>
-                                    <h3><?php echo wp_kses($settings['section_title'], $allowed_tags);?></h3>
-                                    <?php if(!empty($settings['section_description'])) : ?>
-                                        <p><?php echo wp_kses($settings['section_description'], $allowed_tags);?></p>
-                                    <?php endif; ?>
-
-                                    <div class="event_navi">
-                                        <div class="event__next"><i class="fas fa-chevron-left"></i></div>
-                                        <div class="event__prev"><i class="fas fa-chevron-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ( $query->have_posts() ) : ?>
-                            <div class="col-lg-8 col-12">
-                                <div class="section-wrapper">
-                                    <div class="event">
-                                        <div class="event__slider overflow-hidden">
-                                            <div class="swiper-wrapper">
-                                                <?php while ( $query->have_posts() ) : $query->the_post();
-                                                    list($event_location,$event_day,$event_month,$event_date,$event_time,$event_speakers) = $parse_event_meta();
-                                                    $speaker = !empty($event_speakers[0]) ? $event_speakers[0] : [];
-                                                    $speaker_img_id  = isset($speaker['speaker_image']['id']) ? $speaker['speaker_image']['id'] : '';
-                                                    $speaker_img_url = $speaker_img_id ? wp_get_attachment_image_url($speaker_img_id, 'thumbnail') : '';
-                                                ?>
-                                                <div class="swiper-slide">
-                                                    <div class="event__item">
-                                                        <div class="event__inner">
-                                                            <?php if ( 'yes' === $settings['image_thumb_display'] ) : ?>
-                                                                <div class="event__thumb"><?php the_post_thumbnail('large'); ?></div>
-                                                            <?php endif; ?>
-
-                                                            <div class="event__content">
-                                                                <?php if (!empty($speaker)) : ?>
-                                                                <div class="event__author">
-                                                                    <?php if ($speaker_img_url) : ?>
-                                                                        <img src="<?php echo esc_url($speaker_img_url); ?>" alt="<?php echo esc_attr($speaker['speaker_name'] ?? ''); ?>" class="rounded-circle">
-                                                                    <?php endif; ?>
-                                                                    <div class="name">
-                                                                        <h6><?php echo esc_html($speaker['speaker_name'] ?? ''); ?></h6>
-                                                                        <span><?php echo esc_html($speaker['speaker_role'] ?? ''); ?></span>
-                                                                    </div>
-                                                                </div>
-                                                                <?php endif; ?>
-
-                                                                <div class="event__list">
-                                                                    <a href="<?php the_permalink(); ?>"><h5><?php the_title(); ?></h5></a>
-                                                                    <ul>
-                                                                        <li><i class="far fa-clock"></i> <b><?php esc_html_e('Time :-', 'heal-core'); ?></b> <?php echo esc_html($event_date); ?> <?php esc_html_e('at', 'heal-core'); ?> <?php echo esc_html($event_time); ?></li>
-                                                                        <li><i class="fas fa-map-marker-alt"></i> <b><?php esc_html_e('Address :-', 'heal-core'); ?></b> <?php echo esc_html($event_location); ?></li>
-                                                                    </ul>
-                                                                </div>
-
-                                                                <div class="event__btn">
-                                                                    <a href="<?php the_permalink(); ?>" class="default-btn move-right"><span><?php echo esc_html($settings['button']); ?></span></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php endwhile; wp_reset_postdata(); ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php else: ?>
-                                <div class="col-12"><p><?php esc_html_e('No events found.', 'heal-core'); ?></p></div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-
-            <?php elseif ( 'style6' === $settings['style'] ) : ?>
-                <div class="event-section padding--top padding--bottom" id="event">
-                    <div class="container">
-                        <div class="row g-4">
-                            <?php if ( !empty($settings['section_title']) ) : ?>
-                            <div class="col-lg-4 col-12">
-                                <div class="section-header style-4">
-                                    <?php if ( ! empty( $settings['section_icon'] ) ) : ?>
-                                        <div class="event-icon">
-                                            <?php \Elementor\Icons_Manager::render_icon( $settings['section_icon'], [ 'aria-hidden' => 'true' ]  ); ?>
-                                        </div>
-                                    <?php endif; ?>
-
-                                    <h3><?php echo wp_kses($settings['section_title'], $allowed_tags);?></h3>
-                                    <?php if(!empty($settings['section_description'])) : ?>
-                                        <p><?php echo wp_kses($settings['section_description'], $allowed_tags);?></p>
-                                    <?php endif; ?>
-
-                                    <div class="event_navi">
-                                        <div class="event__next"><i class="fas fa-chevron-left"></i></div>
-                                        <div class="event__prev"><i class="fas fa-chevron-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ( $query->have_posts() ) : ?>
-                            <div class="col-lg-8 col-12">
-                                <div class="section-wrapper">
-                                    <div class="event event-style2">
-                                        <div class="event__slider overflow-hidden">
-                                            <div class="swiper-wrapper">
-                                                <?php while ( $query->have_posts() ) : $query->the_post();
-                                                    list($event_location,$event_day,$event_month,$event_date,$event_time,$event_speakers) = $parse_event_meta();
-                                                ?>
-                                                <div class="swiper-slide">
-                                                    <div class="event__item">
-                                                        <div class="event__inner">
-                                                            <?php if ( 'yes' === $settings['image_thumb_display'] ) : ?>
-                                                                <div class="event__thumb">
-                                                                    <?php the_post_thumbnail('large'); ?>
-                                                                </div>
-                                                            <?php endif; ?>
-
-                                                            <div class="event__content">
-                                                                <a href="<?php the_permalink(); ?>"><h5><?php the_title(); ?></h5></a>
-                                                                <p><?php echo esc_html( wp_trim_words( wp_strip_all_tags( get_the_content() ), 12, '…' ) ); ?></p>
-
-                                                                <a href="<?php the_permalink(); ?>" class="default-btn move-right"><span><?php echo esc_html($settings['button']); ?></span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php endwhile; wp_reset_postdata(); ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php else: ?>
-                                <div class="col-12"><p><?php esc_html_e('No events found.', 'heal-core'); ?></p></div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
-
-            <?php
-            // Instant CSS
-            if ( !empty($settings['enable_inst_css']) && 'yes' === $settings['enable_inst_css'] && !empty($settings['inst_css']) ) {
-                $scoped = str_replace('&', $root_sel, $settings['inst_css']);
-                echo '<style id="'.esc_attr($root_id).'-inst-css">'.$scoped.'</style>';
-            }
-            ?>
+            </div>
         </div>
+    </div>
 
-        <?php
+    <?php
+    // Instant CSS
+    if ( !empty($settings['enable_inst_css']) && 'yes' === $settings['enable_inst_css'] && !empty($settings['inst_css']) ) {
+        $scoped = str_replace('&', $root_sel, $settings['inst_css']);
+        echo '<style id="'.esc_attr($root_id).'-inst-css">'.$scoped.'</style>';
+    }
     }
 }
 
